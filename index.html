@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b0f1a" />
+
+    <title>FR Software Solutions — Custom Software, Web & Cloud Development</title>
+    <meta
+      name="description"
+      content="FR Software Solutions designs and builds custom software, web & mobile apps, and cloud platforms that move businesses forward. Explore our projects, team, and client results."
+    />
+    <meta name="keywords" content="software development, web development, mobile apps, cloud, FR Software Solutions, custom software company" />
+    <meta name="author" content="FR Software Solutions" />
+
+    <!-- Open Graph / social sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="FR Software Solutions — Software that moves your business forward" />
+    <meta property="og:description" content="Custom software, web & mobile apps, and cloud platforms built by a senior engineering team." />
+    <meta property="og:url" content="https://frsoftwaresolutions.online/" />
+    <meta property="og:image" content="https://frsoftwaresolutions.online/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!--
+      Hidden static form so Netlify's build-time bots can detect the
+      contact form (the real form is rendered by React at runtime).
+      Keep field names in sync with src/components/Contact.jsx.
+    -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="company" />
+      <textarea name="message"></textarea>
+    </form>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
