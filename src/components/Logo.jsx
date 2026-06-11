@@ -1,15 +1,50 @@
-import { company } from '../data/site'
+import { useState } from 'react'
+import { brand, company } from '../data/site'
 
-/** Wordmark + monogram lockup used in the navbar and footer. */
-export default function Logo({ className = '' }) {
+/**
+ * Brand mark. Renders the official logo from /public/brand/logo.png when the
+ * file exists; until then it falls back to a sharp gradient FR monogram so
+ * the site never shows a broken image.
+ */
+export function BrandMark({ className = 'h-10 w-10' }) {
+  const [missing, setMissing] = useState(false)
+
+  if (!missing) {
+    return (
+      <img
+        src={brand.logo}
+        alt={`${company.name} logo`}
+        className={`${className} object-contain`}
+        onError={() => setMissing(true)}
+        draggable="false"
+      />
+    )
+  }
+
   return (
-    <a href="#home" className={`group flex items-center gap-2.5 ${className}`}>
-      <span className="relative grid h-9 w-9 place-items-center overflow-hidden rounded-xl bg-gradient-to-br from-brand-500 to-accent-500 shadow-lg shadow-brand-600/30">
-        <span className="font-display text-sm font-extrabold text-white">FR</span>
-        <span className="absolute inset-0 translate-y-full bg-white/20 transition-transform duration-500 group-hover:translate-y-0" />
-      </span>
-      <span className="font-display text-lg font-bold tracking-tight text-white">
-        FR <span className="text-gradient">Software</span>
+    <span
+      className={`relative grid place-items-center overflow-hidden rounded-xl
+                  bg-gradient-to-br from-brand-600 via-brand-500 to-accent-500
+                  shadow-lg shadow-brand-600/40 ${className}`}
+    >
+      <span className="font-display text-sm font-extrabold tracking-tight text-white">FR</span>
+      <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_55%)]" />
+    </span>
+  )
+}
+
+/** Wordmark + monogram lockup used in the navbar, footer and preloader. */
+export default function Logo({ className = '', withTagline = false }) {
+  return (
+    <a href="#home" className={`group flex items-center gap-3 ${className}`}>
+      <BrandMark className="h-10 w-10 shrink-0" />
+      <span className="flex flex-col leading-tight">
+        <span className="font-display text-lg font-bold tracking-tight text-white">
+          FR <span className="text-gradient">Software Solutions</span>
+        </span>
+        {withTagline && (
+          <span className="text-[11px] font-medium text-slate-400">{company.tagline}</span>
+        )}
       </span>
     </a>
   )

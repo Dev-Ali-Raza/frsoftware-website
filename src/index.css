@@ -8,19 +8,19 @@
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 
   /* Core surface palette (deep navy) */
-  --color-ink-950: #060912;
-  --color-ink-900: #0b0f1a;
-  --color-ink-850: #0f1424;
-  --color-ink-800: #131a2e;
-  --color-ink-700: #1c2540;
-  --color-ink-600: #2a3760;
+  --color-ink-950: #04070f;
+  --color-ink-900: #070b16;
+  --color-ink-850: #0a1020;
+  --color-ink-800: #0e1628;
+  --color-ink-700: #16203a;
+  --color-ink-600: #233156;
 
-  /* Brand — indigo / violet */
-  --color-brand-300: #a5b4fc;
-  --color-brand-400: #818cf8;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-700: #4338ca;
+  /* Brand — royal / navy blue */
+  --color-brand-300: #93c5fd;
+  --color-brand-400: #60a5fa;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
 
   /* Accent — cyan */
   --color-accent-300: #67e8f9;
@@ -49,15 +49,15 @@
     color: white;
   }
 
-  /* Custom scrollbar */
+  /* Premium dark scrollbar */
   ::-webkit-scrollbar { width: 10px; }
   ::-webkit-scrollbar-track { background: var(--color-ink-950); }
   ::-webkit-scrollbar-thumb {
-    background: var(--color-ink-600);
+    background: linear-gradient(180deg, var(--color-brand-600), var(--color-accent-500));
     border-radius: 999px;
     border: 2px solid var(--color-ink-950);
   }
-  ::-webkit-scrollbar-thumb:hover { background: var(--color-brand-600); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-brand-500); }
 }
 
 @layer components {
@@ -75,17 +75,25 @@
     @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl;
   }
 
+  /* Glass card with hover glow */
+  .glass-glow {
+    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl
+           transition-all duration-300
+           hover:border-brand-500/40 hover:bg-white/[0.05]
+           hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)];
+  }
+
   /* Section eyebrow label */
   .eyebrow {
     @apply inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10
            px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-brand-300;
   }
 
-  /* Primary button */
+  /* Primary glowing button */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-600 to-brand-500
-           px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/25
-           transition-all duration-300 hover:shadow-xl hover:shadow-brand-500/40 hover:-translate-y-0.5
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-600 to-accent-500
+           px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/30
+           transition-all duration-300 hover:shadow-xl hover:shadow-accent-500/40 hover:-translate-y-0.5
            focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400;
   }
 
@@ -94,30 +102,149 @@
            px-6 py-3 text-sm font-semibold text-white transition-all duration-300
            hover:bg-white/10 hover:border-white/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30;
   }
+
+  /* WhatsApp green button */
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-emerald-600 to-green-500
+           px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-600/30
+           transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/40 hover:-translate-y-0.5
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400;
+  }
+
+  /* Tech badge pill */
+  .tech-badge {
+    @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1
+           text-xs font-medium text-slate-300 transition-all duration-300
+           hover:border-accent-400/50 hover:text-accent-300 hover:bg-accent-500/10 hover:-translate-y-0.5;
+  }
+
+  /* Form field */
+  .field {
+    @apply w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white
+           placeholder:text-slate-500 transition-colors
+           focus:border-brand-500/60 focus:outline-none focus:ring-2 focus:ring-brand-500/20;
+  }
 }
 
-/* Aurora / animated gradient background blobs */
+/* ------------------------------------------------------------------ */
+/*  Keyframes & motion utilities                                       */
+/* ------------------------------------------------------------------ */
+
+/* Aurora / floating gradient blobs */
 @keyframes float-slow {
   0%, 100% { transform: translate(0, 0) scale(1); }
   33% { transform: translate(40px, -30px) scale(1.1); }
   66% { transform: translate(-30px, 20px) scale(0.95); }
 }
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee var(--marquee-duration, 40s) linear infinite;
-}
-
 .aurora-blob {
   animation: float-slow 18s ease-in-out infinite;
   will-change: transform;
 }
 
+/* Gentle vertical bobbing (floating icons / shapes) */
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+.animate-bob { animation: bob 5s ease-in-out infinite; }
+
+/* Slow rotation for abstract 3D shapes */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin-slow { animation: spin-slow 30s linear infinite; }
+
+/* Moving grid backdrop (hero) */
+@keyframes grid-pan {
+  from { background-position: 0 0; }
+  to { background-position: 0 56px; }
+}
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(96, 165, 250, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 165, 250, 0.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  animation: grid-pan 6s linear infinite;
+}
+
+/* Drifting particles (pure CSS dots) */
+@keyframes particle-drift {
+  0% { transform: translateY(0); opacity: 0; }
+  10% { opacity: 0.7; }
+  90% { opacity: 0.7; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+.particle {
+  position: absolute;
+  bottom: -10px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(103, 232, 249, 0.9), rgba(59, 130, 246, 0.2));
+  animation: particle-drift var(--pd, 16s) linear infinite;
+  animation-delay: var(--pdelay, 0s);
+  will-change: transform, opacity;
+}
+
+/* Pulsing glow ring (CTA / preloader) */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.35); }
+  50% { box-shadow: 0 0 0 18px rgba(34, 211, 238, 0); }
+}
+.animate-pulse-glow { animation: pulse-glow 2.4s ease-in-out infinite; }
+
+/* Marquee (technologies strip) */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee var(--marquee-duration, 40s) linear infinite;
+}
+.marquee-mask {
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+/* Animated gradient border (team cards) */
+@keyframes border-spin {
+  to { --border-angle: 360deg; }
+}
+@property --border-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+.animated-border {
+  position: relative;
+  border: 1px solid transparent;
+  background:
+    linear-gradient(var(--color-ink-850), var(--color-ink-850)) padding-box,
+    conic-gradient(
+      from var(--border-angle),
+      rgba(59, 130, 246, 0.05),
+      rgba(59, 130, 246, 0.6),
+      rgba(34, 211, 238, 0.8),
+      rgba(59, 130, 246, 0.05)
+    ) border-box;
+  animation: border-spin 6s linear infinite;
+}
+
+/* Preloader logo ring */
+@keyframes loader-ring {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.loader-ring {
+  animation: loader-ring 1.2s cubic-bezier(0.5, 0.1, 0.5, 0.9) infinite;
+}
+
+/* 3D scene helpers */
+.perspective-1200 { perspective: 1200px; }
+.preserve-3d { transform-style: preserve-3d; }
+
 @media (prefers-reduced-motion: reduce) {
-  .aurora-blob, .animate-marquee { animation: none; }
+  .aurora-blob, .animate-marquee, .animate-bob, .animate-spin-slow,
+  .bg-grid, .particle, .animate-pulse-glow, .animated-border {
+    animation: none;
+  }
   html { scroll-behavior: auto; }
 }

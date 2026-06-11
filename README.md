@@ -1,97 +1,93 @@
 # FR Software Solutions — Company Website
 
-A modern, animated single-page marketing website for **FR Software Solutions**, built with
-Vite + React + Tailwind CSS v4 + Framer Motion, and ready to deploy to **Netlify** at
-[frsoftwaresolutions.online](https://frsoftwaresolutions.online/).
+> **Building technology that powers business growth.**
+
+A premium, animated single-page company website for **FR Software Solutions** — a software
+house building POS systems, inventory management, restaurant & retail management, accounting
+systems, dashboards, and custom web/desktop applications.
+
+Built with **Vite + React 18 + Tailwind CSS v4 + Framer Motion**, deployable to **Netlify**
+at [www.frsoftwaresolutions.com](https://www.frsoftwaresolutions.com/).
 
 ![Stack](https://img.shields.io/badge/Vite-6-646CFF) ![React](https://img.shields.io/badge/React-18-61DAFB) ![Tailwind](https://img.shields.io/badge/Tailwind-v4-38BDF8)
 
 ---
 
-## ✨ Features
+## ✨ Sections & features
 
-- **Animated hero** with an aurora gradient background and scroll cue
-- **Sticky blur navbar** + scroll progress bar + mobile menu
-- **Services**, **Portfolio** (with category filtering), **Process**, **Team**
-- **Client testimonials** marquee
-- **Working contact form** powered by **Netlify Forms** (no backend needed)
-- Smooth scroll-reveal animations throughout (respects `prefers-reduced-motion`)
-- SEO meta tags, Open Graph image, custom favicon, security headers
-- Fully responsive, accessible, fast (~99 KB gzipped JS)
+| Section | Highlights |
+| --- | --- |
+| Loading screen | Animated logo ring + tagline, fades into the page |
+| Navbar | Sticky glass-blur on scroll, active-link highlight, mobile menu, **Get Free Demo** CTA |
+| Hero | 3D POS dashboard mockup, 8 floating capability icons, moving grid, particles, parallax, cover-image slot |
+| Stats | Animated glowing counter cards |
+| About | Company story + 3 premium cards |
+| Services | 12 animated service cards |
+| Products | 3 product cards (Restaurant MS, Inventory MS, **Mart POS** flagship) with detail modals |
+| Portfolio | 15 projects, 9 category filters, animated grid + detail modals with business benefits |
+| Dev Work | GitHub-style repository cards with activity graphs (14 repos) |
+| Team | Glassmorphism profiles with animated gradient borders, 3D tilt, skills, portfolio links |
+| Why Choose Us | 11-reason feature grid |
+| Process | 6-step glowing zigzag timeline |
+| Industries | 13 industry pills |
+| Technologies | Dual-direction marquee of tech badges |
+| Testimonials | Auto-playing carousel (pauses on hover) |
+| CTA band | WhatsApp / Demo / Discuss buttons + prominent phone number |
+| Contact | Validated form (Netlify Forms) with service dropdown + info cards |
+| Extras | Floating WhatsApp button, back-to-top, scroll progress bar, custom scrollbar, `prefers-reduced-motion` support |
 
 ---
 
-## ✏️ Editing your content
+## 🖼 Brand assets (logo & cover image)
 
-**Everything you'll want to change lives in one file:**
+The site is wired to pick up your official assets automatically — just drop the files in:
 
 ```
-src/data/site.js
+public/brand/logo.png    ← official logo (transparent PNG recommended)
+public/brand/cover.jpg   ← cover image (used as the hero background, behind a dark overlay)
 ```
 
-There you can update:
+- **No code changes needed.** Until the files exist, a sharp gradient "FR" monogram and the
+  gradient/grid hero background render instead — nothing ever looks broken.
+- The logo appears in the navbar, footer, and loading screen.
+- To update the favicon, replace `public/favicon.svg` (or add `favicon.png` and update the
+  `<link rel="icon">` in `index.html`).
 
-| Section            | What to edit                                            |
-| ------------------ | ------------------------------------------------------- |
-| Company info       | `company` — name, email, phone, location, social links  |
-| Hero stats         | `stats`                                                 |
-| Trusted-by logos   | `trustedBy`                                             |
-| Services           | `services`                                              |
-| Projects/portfolio | `projects` + `projectCategories`                        |
-| Process steps      | `process`                                               |
-| Testimonials       | `testimonials`                                          |
-| Team members       | `team`                                                  |
-| Navigation         | `navLinks`                                              |
+---
 
-> **Replace the placeholder names, projects and quotes with your real data**, then rebuild/redeploy.
+## ✏️ Editing content
 
-### Adding real team photos
-Put image files in `public/` (e.g. `public/team/faisal.jpg`) and set the `image` field in
-`team` to `/team/faisal.jpg`. If `image` is empty, a styled initials avatar is shown.
+**All text/content lives in one file:** `src/data/site.js` — company info, nav, hero copy,
+stats, about cards, services, products, portfolio projects, repo cards, team, why-choose-us,
+process steps, industries, technologies, testimonials, and the contact-form service options.
 
 ---
 
 ## 🧑‍💻 Local development
 
 ```bash
-npm install      # install dependencies (already done)
-npm run dev      # start dev server → http://localhost:5173
+npm install      # install dependencies
+npm run dev      # dev server → http://localhost:5173
 npm run build    # production build → dist/
-npm run preview  # preview the production build locally
+npm run preview  # preview the production build → http://localhost:4173
 ```
 
 ---
 
 ## 🚀 Deploying to Netlify
 
-See **DEPLOY.md** for full step-by-step instructions. Two quick options:
+See **DEPLOY.md** for full instructions. Quick options:
 
-### Option A — Drag & drop (fastest, no account setup)
-1. Run `npm run build`
-2. Go to <https://app.netlify.com/drop>
-3. Drag the **`dist`** folder onto the page → it goes live instantly
-4. In **Site settings → Domain management**, add `frsoftwaresolutions.online`
-
-### Option B — Netlify CLI (repeatable)
-```bash
-npm install -g netlify-cli
-netlify login
-netlify deploy --build --prod
-```
-
-### Option C — Git + continuous deploy (recommended long-term)
-Push this folder to a GitHub repo, then "Import from Git" in Netlify.
-Build command `npm run build`, publish directory `dist` (already set in `netlify.toml`).
-
----
+1. **Drag & drop** — `npm run build`, then drag `dist/` onto <https://app.netlify.com/drop>
+2. **CLI** — `netlify deploy --build --prod`
+3. **Git** (recommended) — push to GitHub and "Import from Git" in Netlify.
+   Build command `npm run build`, publish directory `dist` (already in `netlify.toml`).
 
 ## 📨 Contact form
 
-The contact form uses **Netlify Forms** and works automatically once deployed to Netlify —
-submissions appear in your Netlify dashboard under **Forms**. No server or API key required.
-(A hidden static form in `index.html` lets Netlify detect it at build time.)
-
-To get email notifications: **Netlify → Forms → Settings & notifications → Add notification**.
+Uses **Netlify Forms** — works automatically once deployed to Netlify; submissions appear
+under **Forms** in the Netlify dashboard. Field names are mirrored in the hidden form in
+`index.html` (keep them in sync with `src/components/Contact.jsx`).
 
 ---
 
@@ -99,11 +95,20 @@ To get email notifications: **Netlify → Forms → Settings & notifications →
 
 ```
 src/
-  data/site.js          ← ALL editable content
-  components/            ← UI sections (Hero, Services, Projects, …)
-  App.jsx               ← page composition
-  index.css             ← Tailwind theme + brand tokens
-public/                 ← favicon, OG image, (your images)
-netlify.toml            ← build + redirects + headers
-index.html              ← <head> meta + hidden Netlify form
+  data/site.js            ← ALL editable content
+  components/
+    Preloader.jsx         ← branded loading screen
+    Navbar.jsx  Hero.jsx  Stats.jsx  About.jsx
+    Services.jsx  Products.jsx  Portfolio.jsx  DevWork.jsx
+    Team.jsx  WhyChooseUs.jsx  Process.jsx
+    Industries.jsx  Technologies.jsx  Testimonials.jsx
+    CtaBand.jsx  Contact.jsx  Footer.jsx
+    FloatingActions.jsx   ← WhatsApp float + back-to-top
+    Icon.jsx  Logo.jsx  Modal.jsx  TiltCard.jsx  Counter.jsx
+    Reveal.jsx  SectionHeading.jsx  ScrollProgress.jsx
+  App.jsx                 ← page composition
+  index.css               ← Tailwind v4 theme tokens + animations
+public/brand/             ← drop logo.png & cover.jpg here
+netlify.toml              ← build + redirects + headers
+index.html                ← SEO meta + hidden Netlify form
 ```
