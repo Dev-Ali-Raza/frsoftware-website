@@ -7,8 +7,8 @@
 export const company = {
   name: 'FR Software Solutions',
   shortName: 'FR Software',
-  domain: 'www.frsoftwaresolutions.com',
-  url: 'https://www.frsoftwaresolutions.com',
+  domain: 'frsoftwaresolutions.online',
+  url: 'https://frsoftwaresolutions.online',
   tagline: 'Building technology that powers business growth.',
   description:
     'FR Software Solutions is a modern software development company building POS systems, inventory management, restaurant and retail management, accounting systems, dashboards, and custom web & desktop applications for growing businesses.',
