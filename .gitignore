@@ -25,3 +25,7 @@ Thumbs.db
 
 # Netlify
 .netlify
+
+# Local screenshot output (scripts/shoot*.mjs)
+shots
+

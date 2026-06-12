@@ -51,25 +51,25 @@ export default function Navbar() {
       }`}
     >
       <nav className="container-px flex items-center justify-between gap-4">
-        <Logo withTagline={!scrolled} />
+        <Logo withTagline={false} />
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-0.5 xl:flex">
+        <ul className="hidden items-center gap-2 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
                 className={`relative rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
                   active === link.href
-                    ? 'text-white'
-                    : 'text-slate-300 hover:bg-white/5 hover:text-white'
+                    ? 'text-brand-300'
+                    : 'text-slate-300 hover:text-white'
                 }`}
               >
                 {link.label}
                 {active === link.href && (
                   <motion.span
                     layoutId="nav-active"
-                    className="absolute inset-0 -z-10 rounded-full border border-brand-500/40 bg-brand-500/15"
+                    className="absolute inset-x-3 bottom-0.5 h-0.5 rounded-full bg-gradient-to-r from-brand-500 to-accent-400"
                     transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                   />
                 )}
@@ -78,16 +78,16 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden xl:block">
+        <div className="hidden lg:block">
           <a href="#contact" className="btn-primary whitespace-nowrap">
-            Get Free Demo <ArrowRight className="h-4 w-4" />
+            Free Consultation <ArrowRight className="h-4 w-4" />
           </a>
         </div>
 
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen((v) => !v)}
-          className="grid h-10 w-10 place-items-center rounded-lg border border-white/10 bg-white/5 text-white xl:hidden"
+          className="grid h-10 w-10 place-items-center rounded-lg border border-white/10 bg-white/5 text-white lg:hidden"
           aria-label="Toggle menu"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -102,7 +102,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="max-h-[calc(100vh-4.5rem)] overflow-y-auto border-b border-white/10 bg-ink-900/95 backdrop-blur-xl xl:hidden"
+            className="max-h-[calc(100vh-4.5rem)] overflow-y-auto border-b border-white/10 bg-ink-900/95 backdrop-blur-xl lg:hidden"
           >
             <ul className="container-px flex flex-col gap-1 py-5">
               {navLinks.map((link) => (
@@ -122,7 +122,7 @@ export default function Navbar() {
               ))}
               <li className="pt-2">
                 <a href="#contact" onClick={() => setOpen(false)} className="btn-primary w-full">
-                  Get Free Demo <ArrowRight className="h-4 w-4" />
+                  Free Consultation <ArrowRight className="h-4 w-4" />
                 </a>
               </li>
               <li className="pt-1 text-center text-xs text-slate-500">{company.tagline}</li>

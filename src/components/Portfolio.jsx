@@ -3,7 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight, ArrowUpRight, Eye, Lock, Globe2, Check, TrendingUp } from 'lucide-react'
 import Modal from './Modal'
 import SectionHeading from './SectionHeading'
-import { projects, projectCategories } from '../data/site'
+import { projects, projectCategories, projectImages } from '../data/site'
 
 function VisibilityBadge({ visibility }) {
   const isPrivate = visibility === 'Private'
@@ -76,10 +76,17 @@ export default function Portfolio() {
                 transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
                 className="glass-glow group relative flex flex-col overflow-hidden"
               >
-                {/* gradient banner */}
-                <div className={`relative h-24 bg-gradient-to-br ${project.accent} opacity-80`}>
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_120%,rgba(255,255,255,0.18),transparent_60%)]" />
-                  <span className="absolute bottom-3 left-5 font-display text-xs font-bold uppercase tracking-widest text-white/80">
+                {/* photo banner (accent gradient shows if the photo fails) */}
+                <div className={`relative h-48 overflow-hidden bg-gradient-to-br ${project.accent}`}>
+                  <img
+                    src={projectImages[project.name]}
+                    alt={`${project.name} — ${project.type}`}
+                    loading="lazy"
+                    onError={(e) => { e.currentTarget.style.display = 'none' }}
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-ink-950/95 via-ink-950/25 to-transparent" />
+                  <span className="absolute bottom-3 left-5 font-display text-xs font-bold uppercase tracking-widest text-white/90">
                     {project.type}
                   </span>
                 </div>

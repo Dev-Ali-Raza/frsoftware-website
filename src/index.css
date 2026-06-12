@@ -7,25 +7,25 @@
   --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 
-  /* Core surface palette (deep navy) */
-  --color-ink-950: #04070f;
-  --color-ink-900: #070b16;
-  --color-ink-850: #0a1020;
-  --color-ink-800: #0e1628;
-  --color-ink-700: #16203a;
-  --color-ink-600: #233156;
+  /* Core surface palette (near-black, editorial) */
+  --color-ink-950: #030304;
+  --color-ink-900: #070708;
+  --color-ink-850: #0b0b0d;
+  --color-ink-800: #111114;
+  --color-ink-700: #1b1b20;
+  --color-ink-600: #2a2a31;
 
-  /* Brand — royal / navy blue */
-  --color-brand-300: #93c5fd;
-  --color-brand-400: #60a5fa;
-  --color-brand-500: #3b82f6;
-  --color-brand-600: #2563eb;
-  --color-brand-700: #1d4ed8;
+  /* Brand — violet / purple */
+  --color-brand-300: #c4b5fd;
+  --color-brand-400: #a78bfa;
+  --color-brand-500: #8b5cf6;
+  --color-brand-600: #7c3aed;
+  --color-brand-700: #6d28d9;
 
-  /* Accent — cyan */
-  --color-accent-300: #67e8f9;
-  --color-accent-400: #22d3ee;
-  --color-accent-500: #06b6d4;
+  /* Accent — fuchsia / magenta */
+  --color-accent-300: #f0abfc;
+  --color-accent-400: #e879f9;
+  --color-accent-500: #d946ef;
 }
 
 @layer base {
@@ -49,15 +49,15 @@
     color: white;
   }
 
-  /* Premium dark scrollbar */
+  /* Quiet dark scrollbar */
   ::-webkit-scrollbar { width: 10px; }
   ::-webkit-scrollbar-track { background: var(--color-ink-950); }
   ::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, var(--color-brand-600), var(--color-accent-500));
+    background: var(--color-ink-600);
     border-radius: 999px;
     border: 2px solid var(--color-ink-950);
   }
-  ::-webkit-scrollbar-thumb:hover { background: var(--color-brand-500); }
+  ::-webkit-scrollbar-thumb:hover { background: #3f3f48; }
 }
 
 @layer components {
@@ -65,49 +65,48 @@
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
   }
 
-  /* Gradient text */
+  /* Gradient text — vivid purple → fuchsia (Introvera-style) */
   .text-gradient {
     @apply bg-gradient-to-r from-brand-400 via-accent-400 to-brand-300 bg-clip-text text-transparent;
   }
 
-  /* Glass card */
+  /* Clean dark card */
   .glass {
-    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl;
+    @apply rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-xl;
   }
 
-  /* Glass card with hover glow */
+  /* Clean dark card with quiet hover lift */
   .glass-glow {
-    @apply rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl
+    @apply rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-xl
            transition-all duration-300
-           hover:border-brand-500/40 hover:bg-white/[0.05]
-           hover:shadow-[0_0_40px_-12px_rgba(59,130,246,0.45)];
+           hover:border-white/25 hover:bg-white/[0.04] hover:-translate-y-1;
   }
 
-  /* Section eyebrow label */
+  /* Section eyebrow label — minimal uppercase kicker */
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-brand-500/30 bg-brand-500/10
-           px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-brand-300;
+    @apply inline-flex items-center gap-2.5 text-xs font-semibold uppercase
+           tracking-[0.3em] text-brand-400;
   }
 
-  /* Primary glowing button */
+  /* Primary button — vivid purple gradient pill */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-600 to-accent-500
-           px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/30
+           px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/40
            transition-all duration-300 hover:shadow-xl hover:shadow-accent-500/40 hover:-translate-y-0.5
            focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-transparent
            px-6 py-3 text-sm font-semibold text-white transition-all duration-300
-           hover:bg-white/10 hover:border-white/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30;
+           hover:bg-white/10 hover:border-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30;
   }
 
-  /* WhatsApp green button */
+  /* WhatsApp green button — flat */
   .btn-whatsapp {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-emerald-600 to-green-500
-           px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-600/30
-           transition-all duration-300 hover:shadow-xl hover:shadow-emerald-500/40 hover:-translate-y-0.5
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500
+           px-6 py-3 text-sm font-semibold text-white
+           transition-all duration-300 hover:bg-emerald-400 hover:-translate-y-0.5
            focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400;
   }
 
@@ -115,7 +114,7 @@
   .tech-badge {
     @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1
            text-xs font-medium text-slate-300 transition-all duration-300
-           hover:border-accent-400/50 hover:text-accent-300 hover:bg-accent-500/10 hover:-translate-y-0.5;
+           hover:border-white/30 hover:text-white hover:bg-white/10 hover:-translate-y-0.5;
   }
 
   /* Form field */

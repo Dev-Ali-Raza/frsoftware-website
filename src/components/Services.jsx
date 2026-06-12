@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import Icon from './Icon'
 import { StaggerGroup, staggerItem } from './Reveal'
 import SectionHeading from './SectionHeading'
-import { services } from '../data/site'
+import { services, serviceImages } from '../data/site'
 
 export default function Services() {
   return (
@@ -21,17 +21,25 @@ export default function Services() {
             <motion.div
               key={service.title}
               variants={staggerItem}
-              className="glass-glow group relative overflow-hidden p-7"
+              className="group relative h-72 overflow-hidden rounded-2xl border border-white/10 bg-ink-850 transition-colors duration-300 hover:border-white/25"
             >
-              <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-500/50 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-              <div className="flex items-start gap-4">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-brand-600/35 to-accent-500/15 text-accent-300 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-accent-500/20">
-                  <Icon name={service.icon} className="h-[22px] w-[22px]" />
+              {/* background photo with slow zoom on hover */}
+              <img
+                src={serviceImages[service.title]}
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                onError={(e) => { e.currentTarget.style.display = 'none' }}
+                className="absolute inset-0 h-full w-full object-cover opacity-60 transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/60 to-ink-950/10" />
+
+              <div className="absolute inset-x-0 bottom-0 p-6">
+                <span className="grid h-11 w-11 place-items-center rounded-xl border border-white/15 bg-ink-950/60 text-brand-400 backdrop-blur">
+                  <Icon name={service.icon} className="h-5 w-5" />
                 </span>
-                <div>
-                  <h3 className="text-lg font-bold leading-snug">{service.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-400">{service.description}</p>
-                </div>
+                <h3 className="mt-4 text-lg font-bold leading-snug">{service.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-300/90">{service.description}</p>
               </div>
             </motion.div>
           ))}

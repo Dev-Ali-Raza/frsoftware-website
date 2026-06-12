@@ -32,22 +32,22 @@ export const brand = {
   cover: '/brand/cover.jpg',
 }
 
-/* Nav links ---------------------------------------------------------- */
+/* Nav links — keep this short (Introvera-style minimal navbar).
+   All other sections stay reachable by scrolling / footer links. */
 export const navLinks = [
   { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
   { label: 'Services', href: '#services' },
-  { label: 'Products', href: '#products' },
-  { label: 'Portfolio', href: '#portfolio' },
-  { label: 'Team', href: '#team' },
-  { label: 'Process', href: '#process' },
-  { label: 'Testimonials', href: '#testimonials' },
+  { label: 'Projects', href: '#portfolio' },
+  { label: 'About', href: '#about' },
   { label: 'Contact', href: '#contact' },
 ]
 
 /* Hero ---------------------------------------------------------------- */
 export const hero = {
-  heading: 'Building Smart Software Solutions for Growing Businesses',
+  heading: 'Build Software That Matters',
+  /* the last word cycles through these in the hero headline */
+  rotatingWords: ['Matters', 'Sells', 'Scales', 'Lasts'],
+  tags: ['Insight', 'Innovation', 'FR Software'],
   subheading:
     'FR Software Solutions helps businesses automate operations, manage sales, track inventory, handle accounting, and grow with custom web, desktop, and POS systems.',
   trustLine:
@@ -80,6 +80,7 @@ export const about = {
     'FR Software Solutions is a modern software development company focused on building reliable, scalable, and user-friendly business software. We help shops, restaurants, wholesalers, retailers, and service businesses digitize their daily operations through powerful software systems.',
     'Our goal is to save business owners time, reduce manual errors, improve reporting, and provide smart digital tools for business growth.',
   ],
+  badges: ['Fast Delivery', 'Secure & Reliable', 'Dedicated Team', 'Long-Term Support'],
   cards: [
     {
       icon: 'Workflow',
@@ -670,6 +671,53 @@ export const testimonials = [
     rating: 5,
   },
 ]
+
+/* Imagery (Unsplash) ----------------------------------------------------------------
+   Free stock photography hot-linked from Unsplash. Swap any URL for your own
+   photos / screenshots whenever you have them — sizes stay responsive. */
+export const images = {
+  /* dark flowing 3D silk waves — purple-shifted in the hero */
+  hero: 'https://images.unsplash.com/photo-1620121692029-d088224ddc74?auto=format&fit=crop&w=2000&q=80',
+  /* glossy 3D-render cyborg for the hero centerpiece card */
+  heroCard: 'https://images.unsplash.com/photo-1625314887424-9f190599bd56?auto=format&fit=crop&w=900&q=80',
+  about: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+  cta: 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2000&q=80',
+}
+
+/* Background photo per service card (keyed by service title) */
+export const serviceImages = {
+  'Custom Software Development': 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80',
+  'Web Application Development': 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80',
+  'Desktop Application Development': 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=900&q=80',
+  'POS System Development': 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80',
+  'Inventory Management Systems': 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=900&q=80',
+  'Restaurant Management Systems': 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80',
+  'Retail Management Systems': 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=900&q=80',
+  'Accounting & Ledger Systems': 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=900&q=80',
+  'API Integrations': 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=80',
+  'Dashboard & Reporting Solutions': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80',
+  'Database Design & SQL Development': 'https://images.unsplash.com/photo-1597852074816-d933c7d2b988?auto=format&fit=crop&w=900&q=80',
+  'Business Process Automation': 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80',
+}
+
+/* Thumbnail photo per portfolio project (keyed by project name) */
+export const projectImages = {
+  'DMS': 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
+  'Inventory Soda POS Complete System': 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+  'Estate Agency': 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80',
+  'Mart POS': 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=800&q=80',
+  'Clinic Management System': 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80',
+  'Ali Raza Portfolio Website': 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=800&q=80',
+  'Hamza Memon Portfolio Website': 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
+  'Mart': 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80',
+  'Inventory Management System': 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80',
+  'Ecommerce': 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80',
+  'Eye Optical': 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80',
+  'School Management System': 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80',
+  'TownOne Booking System': 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=80',
+  'Restaurant Management System': 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80',
+  'Custom Business Dashboard': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+}
 
 /* Contact form ----------------------------------------------------------------------- */
 export const serviceOptions = [

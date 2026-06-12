@@ -4,14 +4,14 @@ import Reveal from './Reveal'
 export default function SectionHeading({ eyebrow, title, subtitle, align = 'center' }) {
   const alignment = align === 'center' ? 'text-center mx-auto' : 'text-left'
   return (
-    <div className={`max-w-2xl ${alignment}`}>
+    <div className={`max-w-3xl ${alignment}`}>
       {eyebrow && (
         <Reveal>
           <span className="eyebrow">{eyebrow}</span>
         </Reveal>
       )}
       <Reveal delay={0.05}>
-        <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+        <h2 className="mt-5 text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl lg:leading-[1.08]">
           {title}
         </h2>
       </Reveal>
