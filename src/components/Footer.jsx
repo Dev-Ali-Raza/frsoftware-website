@@ -1,27 +1,32 @@
-import { Facebook, Github, Linkedin, Mail, MapPin, Phone } from 'lucide-react'
+import { Facebook, Github, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react'
 import Logo from './Logo'
 import { WhatsAppIcon } from './FloatingActions'
 import { company, navLinks, services, products } from '../data/site'
+import { openWhatsApp, waMeUrl } from '../lib/whatsapp'
 
 const socials = [
   { icon: Facebook, label: 'Facebook', href: company.social.facebook },
+  { icon: Instagram, label: 'Instagram', href: company.social.instagram },
   { icon: Linkedin, label: 'LinkedIn', href: company.social.linkedin },
-  { icon: WhatsAppIcon, label: 'WhatsApp', href: company.social.whatsapp },
+  { icon: WhatsAppIcon, label: 'WhatsApp', href: waMeUrl, onClick: openWhatsApp },
   { icon: Github, label: 'GitHub', href: company.social.github },
 ]
 
+const linkClass = 'text-sm text-slate-400 transition-colors hover:text-brand-300'
+const headingClass = 'text-xs font-bold uppercase tracking-[0.2em] text-white'
+
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 bg-gradient-to-b from-ink-900 to-ink-950">
-      {/* subtle animated glow */}
-      <div className="aurora-blob pointer-events-none absolute -top-32 left-1/4 h-[300px] w-[500px] rounded-full bg-brand-600/10 blur-[120px]" />
+    <footer className="relative overflow-hidden bg-navy-900 text-slate-400">
+      {/* blue top rule — echoes the swoosh */}
+      <div className="h-1 w-full bg-gradient-to-r from-navy-700 via-brand-500 to-brand-300" />
 
       <div className="container-px relative py-16">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr]">
           {/* brand column */}
           <div>
-            <Logo />
-            <p className="mt-3 text-sm font-semibold text-accent-300">{company.tagline}</p>
+            <Logo variant="light" imgClassName="h-12" />
+            <p className="mt-4 text-sm font-semibold text-brand-300">{company.tagline}</p>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">
               {company.description}
             </p>
@@ -33,7 +38,8 @@ export default function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={s.label}
-                  className="grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-400 transition-all hover:-translate-y-0.5 hover:border-accent-400/50 hover:text-accent-300"
+                  onClick={s.onClick}
+                  className="grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/5 text-slate-300 transition-all hover:-translate-y-0.5 hover:border-brand-400 hover:bg-brand-500 hover:text-white"
                 >
                   <s.icon className="h-4 w-4" />
                 </a>
@@ -43,13 +49,11 @@ export default function Footer() {
 
           {/* quick links */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Quick Links</h3>
+            <h3 className={headingClass}>Quick Links</h3>
             <ul className="mt-5 space-y-2.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className="text-sm text-slate-400 transition-colors hover:text-accent-300">
-                    {link.label}
-                  </a>
+                  <a href={link.href} className={linkClass}>{link.label}</a>
                 </li>
               ))}
             </ul>
@@ -57,23 +61,19 @@ export default function Footer() {
 
           {/* services + products */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Services</h3>
+            <h3 className={headingClass}>Services</h3>
             <ul className="mt-5 space-y-2.5">
               {services.slice(0, 6).map((s) => (
                 <li key={s.title}>
-                  <a href="#services" className="text-sm text-slate-400 transition-colors hover:text-accent-300">
-                    {s.title}
-                  </a>
+                  <a href="#services" className={linkClass}>{s.title}</a>
                 </li>
               ))}
             </ul>
-            <h3 className="mt-7 text-sm font-bold uppercase tracking-wider text-white">Products</h3>
+            <h3 className={`${headingClass} mt-7`}>Products</h3>
             <ul className="mt-4 space-y-2.5">
               {products.map((p) => (
                 <li key={p.name}>
-                  <a href="#products" className="text-sm text-slate-400 transition-colors hover:text-accent-300">
-                    {p.name}
-                  </a>
+                  <a href="#products" className={linkClass}>{p.name}</a>
                 </li>
               ))}
             </ul>
@@ -81,16 +81,16 @@ export default function Footer() {
 
           {/* contact */}
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wider text-white">Contact</h3>
+            <h3 className={headingClass}>Contact</h3>
             <ul className="mt-5 space-y-4 text-sm">
               <li>
-                <a href={`tel:${company.phonePlain}`} className="flex items-start gap-3 text-slate-400 transition-colors hover:text-accent-300">
+                <a href={`tel:${company.phonePlain}`} className={`flex items-start gap-3 ${linkClass}`}>
                   <Phone className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
                   {company.phone}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${company.email}`} className="flex items-start gap-3 text-slate-400 transition-colors hover:text-accent-300">
+                <a href={`mailto:${company.email}`} className={`flex items-start gap-3 ${linkClass}`}>
                   <Mail className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
                   {company.email}
                 </a>
@@ -106,9 +106,9 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-7 sm:flex-row">
+        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-7 sm:flex-row">
           <p className="text-xs text-slate-500">© 2026 {company.name}. All rights reserved.</p>
-          <p className="text-xs text-slate-600">{company.domain}</p>
+          <p className="text-xs text-slate-500">{company.domain}</p>
         </div>
       </div>
     </footer>

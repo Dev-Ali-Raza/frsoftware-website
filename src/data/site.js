@@ -7,28 +7,34 @@
 export const company = {
   name: 'FR Software Solutions',
   shortName: 'FR Software',
-  domain: 'frsoftwaresolutions.online',
-  url: 'https://frsoftwaresolutions.online',
+  domain: 'frsoftwaresolutions.com',
+  url: 'https://frsoftwaresolutions.com',
   tagline: 'Building technology that powers business growth.',
   description:
     'FR Software Solutions is a modern software development company building POS systems, inventory management, restaurant and retail management, accounting systems, dashboards, and custom web & desktop applications for growing businesses.',
   email: 'info@frsoftwaresolutions.com',
   phone: '+92 317 3910825',
   phonePlain: '+923173910825',
+  whatsappNumber: '923173910825',       // digits only, with country code — used by src/lib/whatsapp.js
+  whatsappMessage: "Hello FR Software Solutions, I'm interested in your software services.",
   whatsapp: 'https://wa.me/923173910825',
   location: 'Pakistan · Serving local & international clients',
   social: {
-    facebook: 'https://facebook.com/',
-    linkedin: 'https://www.linkedin.com/',
+    facebook: 'https://www.facebook.com/FRSoftwareSolutions',
+    instagram: 'https://www.instagram.com/frsoftwaresolutions/',
+    linkedin: 'https://www.linkedin.com/company/fr-software-solutions',
     whatsapp: 'https://wa.me/923173910825',
     github: 'https://github.com/Dev-Ali-Raza',
   },
 }
 
-/* Brand asset paths — drop real files into /public/brand/ and they are
-   picked up automatically (SVG fallbacks render until then). */
+/* Brand asset paths (official logo files live in /public/brand/). */
 export const brand = {
-  logo: '/brand/logo.png',
+  logo: '/brand/logo.png',              // navy lockup — white backgrounds
+  logoWhite: '/brand/logo-white.png',   // white lockup — navy backgrounds
+  logoTagline: '/brand/logo-tagline.png',
+  mark: '/brand/logo-mark.png',         // "FR" initials only
+  markWhite: '/brand/logo-mark-white.png',
   cover: '/brand/cover.jpg',
 }
 

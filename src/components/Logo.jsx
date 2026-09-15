@@ -2,19 +2,20 @@ import { useState } from 'react'
 import { brand, company } from '../data/site'
 
 /**
- * Brand mark. Renders the official logo from /public/brand/logo.png when the
- * file exists; until then it falls back to a sharp gradient FR monogram so
- * the site never shows a broken image.
+ * Square brand mark (the "FR" initials). Uses the official PNG from
+ * /public/brand/; falls back to a text monogram if the file is missing.
+ * `variant="light"` renders the white version for navy backgrounds.
  */
-export function BrandMark({ className = 'h-10 w-10' }) {
+export function BrandMark({ className = 'h-10', variant = 'dark' }) {
   const [missing, setMissing] = useState(false)
+  const src = variant === 'light' ? brand.markWhite : brand.mark
 
   if (!missing) {
     return (
       <img
-        src={brand.logo}
+        src={src}
         alt={`${company.name} logo`}
-        className={`${className} object-contain`}
+        className={`${className} w-auto object-contain`}
         onError={() => setMissing(true)}
         draggable="false"
       />
@@ -23,29 +24,44 @@ export function BrandMark({ className = 'h-10 w-10' }) {
 
   return (
     <span
-      className={`relative grid place-items-center overflow-hidden rounded-xl
-                  bg-gradient-to-br from-brand-600 via-brand-500 to-accent-500
-                  shadow-lg shadow-brand-600/40 ${className}`}
+      className={`grid aspect-square place-items-center rounded-xl bg-navy-800 ${className}`}
     >
       <span className="font-display text-sm font-extrabold tracking-tight text-white">FR</span>
-      <span className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_55%)]" />
     </span>
   )
 }
 
-/** Wordmark + monogram lockup used in the navbar, footer and preloader. */
-export default function Logo({ className = '', withTagline = false }) {
+/**
+ * Full horizontal lockup — "FR" mark + "Software Solutions" wordmark.
+ * `variant="dark"` (default) is the navy logo for white backgrounds,
+ * `variant="light"` is the white logo for navy backgrounds.
+ */
+export default function Logo({ className = '', variant = 'dark', imgClassName = 'h-11 sm:h-12' }) {
+  const [missing, setMissing] = useState(false)
+  const src = variant === 'light' ? brand.logoWhite : brand.logo
+
   return (
-    <a href="#home" className={`group flex items-center gap-3 ${className}`}>
-      <BrandMark className="h-10 w-10 shrink-0" />
-      <span className="flex flex-col leading-tight">
-        <span className="font-display text-lg font-bold tracking-tight text-white">
-          FR <span className="text-gradient">Software Solutions</span>
+    <a href="#home" className={`inline-flex shrink-0 items-center ${className}`} aria-label={`${company.name} — home`}>
+      {!missing ? (
+        <img
+          src={src}
+          alt={company.name}
+          className={`${imgClassName} w-auto object-contain`}
+          onError={() => setMissing(true)}
+          draggable="false"
+        />
+      ) : (
+        <span className="flex items-center gap-3">
+          <BrandMark className="h-10" variant={variant} />
+          <span
+            className={`font-display text-lg font-bold tracking-tight ${
+              variant === 'light' ? 'text-white' : 'text-navy-800'
+            }`}
+          >
+            FR <span className="text-brand-500">Software Solutions</span>
+          </span>
         </span>
-        {withTagline && (
-          <span className="text-[11px] font-medium text-slate-400">{company.tagline}</span>
-        )}
-      </span>
+      )}
     </a>
   )
 }

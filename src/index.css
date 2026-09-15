@@ -2,30 +2,49 @@
 
 /* ------------------------------------------------------------------ */
 /*  Brand theme (Tailwind v4 — configure via @theme)                   */
+/*  Palette is taken directly from the FR Software Solutions logo:     */
+/*  deep navy wordmark + sky-blue swoosh on white.                     */
 /* ------------------------------------------------------------------ */
 @theme {
   --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 
-  /* Core surface palette (near-black, editorial) */
-  --color-ink-950: #030304;
-  --color-ink-900: #070708;
-  --color-ink-850: #0b0b0d;
-  --color-ink-800: #111114;
-  --color-ink-700: #1b1b20;
-  --color-ink-600: #2a2a31;
+  /* Navy — the logo wordmark colour, used for dark sections & headings */
+  --color-navy-950: #0a1420;
+  --color-navy-900: #0f1d2b;
+  --color-navy-800: #172634;
+  --color-navy-700: #1c3245;
+  --color-navy-600: #253f53;
+  --color-navy-500: #2f5068;
+  --color-navy-400: #4a6b85;
 
-  /* Brand — violet / purple */
-  --color-brand-300: #c4b5fd;
-  --color-brand-400: #a78bfa;
-  --color-brand-500: #8b5cf6;
-  --color-brand-600: #7c3aed;
-  --color-brand-700: #6d28d9;
+  /* Brand blue — the logo swoosh colour, used for accents & CTAs */
+  --color-brand-50:  #eef7fc;
+  --color-brand-100: #d8edf8;
+  --color-brand-200: #b3dcf1;
+  --color-brand-300: #8ccae8;
+  --color-brand-400: #5ab5dc;
+  --color-brand-500: #2e9ecd;
+  --color-brand-600: #1f86b3;
+  --color-brand-700: #186c91;
+  --color-brand-800: #155570;
 
-  /* Accent — fuchsia / magenta */
-  --color-accent-300: #f0abfc;
-  --color-accent-400: #e879f9;
-  --color-accent-500: #d946ef;
+  /* Light surfaces */
+  --color-surface-50:  #ffffff;
+  --color-surface-100: #f6f9fc;
+  --color-surface-200: #eaf1f7;
+  --color-surface-300: #d9e4ee;
+
+  /* Legacy aliases kept so untouched components still compile */
+  --color-accent-300: #8ccae8;
+  --color-accent-400: #5ab5dc;
+  --color-accent-500: #2e9ecd;
+  --color-ink-950: #0a1420;
+  --color-ink-900: #0f1d2b;
+  --color-ink-850: #172634;
+  --color-ink-800: #1c3245;
+  --color-ink-700: #253f53;
+  --color-ink-600: #2f5068;
 }
 
 @layer base {
@@ -35,12 +54,12 @@
   }
 
   body {
-    @apply bg-ink-900 text-slate-300 font-sans antialiased;
+    @apply bg-surface-50 text-slate-600 font-sans antialiased;
     overflow-x: hidden;
   }
 
   h1, h2, h3, h4, h5 {
-    @apply font-display text-white;
+    @apply font-display text-navy-800;
     text-wrap: balance;
   }
 
@@ -49,15 +68,14 @@
     color: white;
   }
 
-  /* Quiet dark scrollbar */
   ::-webkit-scrollbar { width: 10px; }
-  ::-webkit-scrollbar-track { background: var(--color-ink-950); }
+  ::-webkit-scrollbar-track { background: var(--color-surface-100); }
   ::-webkit-scrollbar-thumb {
-    background: var(--color-ink-600);
+    background: var(--color-surface-300);
     border-radius: 999px;
-    border: 2px solid var(--color-ink-950);
+    border: 2px solid var(--color-surface-100);
   }
-  ::-webkit-scrollbar-thumb:hover { background: #3f3f48; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-brand-300); }
 }
 
 @layer components {
@@ -65,71 +83,148 @@
     @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
   }
 
-  /* Gradient text — vivid purple → fuchsia (Introvera-style) */
+  /* Gradient text — navy → brand blue (mirrors the logo) */
   .text-gradient {
-    @apply bg-gradient-to-r from-brand-400 via-accent-400 to-brand-300 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-brand-600 via-brand-500 to-brand-400 bg-clip-text text-transparent;
+  }
+  /* Gradient text for use on dark (navy) backgrounds */
+  .text-gradient-light {
+    @apply bg-gradient-to-r from-brand-300 via-brand-400 to-brand-200 bg-clip-text text-transparent;
   }
 
-  /* Clean dark card */
-  .glass {
-    @apply rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-xl;
+  /* Light card — white, soft border, quiet shadow */
+  .card {
+    @apply rounded-2xl border border-surface-300 bg-white shadow-[0_1px_2px_rgba(15,29,43,0.04),0_8px_24px_-12px_rgba(15,29,43,0.12)];
   }
-
-  /* Clean dark card with quiet hover lift */
-  .glass-glow {
-    @apply rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-xl
+  .card-hover {
+    @apply rounded-2xl border border-surface-300 bg-white
+           shadow-[0_1px_2px_rgba(15,29,43,0.04),0_8px_24px_-12px_rgba(15,29,43,0.12)]
            transition-all duration-300
-           hover:border-white/25 hover:bg-white/[0.04] hover:-translate-y-1;
+           hover:-translate-y-1 hover:border-brand-300 hover:shadow-[0_20px_40px_-16px_rgba(46,158,205,0.3)];
   }
 
-  /* Section eyebrow label — minimal uppercase kicker */
+  /* Dark card — for use inside navy sections */
+  .card-dark {
+    @apply rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl
+           transition-all duration-300 hover:border-brand-400/50 hover:bg-white/[0.07];
+  }
+
+  /* Legacy names mapped onto the light design so untouched components still look right */
+  .glass { @apply rounded-2xl border border-surface-300 bg-white shadow-[0_8px_24px_-12px_rgba(15,29,43,0.12)]; }
+  .glass-glow {
+    @apply rounded-2xl border border-surface-300 bg-white shadow-[0_8px_24px_-12px_rgba(15,29,43,0.12)]
+           transition-all duration-300 hover:-translate-y-1 hover:border-brand-300;
+  }
+
+  /* Section eyebrow label */
   .eyebrow {
-    @apply inline-flex items-center gap-2.5 text-xs font-semibold uppercase
-           tracking-[0.3em] text-brand-400;
+    @apply inline-flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0.28em] text-brand-600;
+  }
+  .eyebrow::before {
+    content: '';
+    @apply h-px w-6 bg-brand-500;
   }
 
-  /* Primary button — vivid purple gradient pill */
+  /* Primary button — solid brand blue, navy on hover */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-brand-600 to-accent-500
-           px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-600/40
-           transition-all duration-300 hover:shadow-xl hover:shadow-accent-500/40 hover:-translate-y-0.5
-           focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-500
+           px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/30
+           transition-all duration-300 hover:bg-navy-700 hover:shadow-navy-700/30 hover:-translate-y-0.5
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2;
   }
 
+  /* Secondary button — navy outline (light backgrounds) */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-navy-700 bg-transparent
+           px-6 py-3 text-sm font-semibold text-navy-800 transition-all duration-300
+           hover:bg-navy-700 hover:text-white hover:-translate-y-0.5
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-500 focus-visible:ring-offset-2;
+  }
+
+  /* Ghost button — white outline (dark backgrounds) */
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-transparent
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/40 bg-transparent
            px-6 py-3 text-sm font-semibold text-white transition-all duration-300
-           hover:bg-white/10 hover:border-white/40 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30;
+           hover:bg-white hover:text-navy-800 hover:border-white
+           focus:outline-none focus-visible:ring-2 focus-visible:ring-white/50;
   }
 
-  /* WhatsApp green button — flat */
+  /* WhatsApp green button */
   .btn-whatsapp {
     @apply inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500
-           px-6 py-3 text-sm font-semibold text-white
-           transition-all duration-300 hover:bg-emerald-400 hover:-translate-y-0.5
+           px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-emerald-500/30
+           transition-all duration-300 hover:bg-emerald-600 hover:-translate-y-0.5
            focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400;
   }
 
-  /* Tech badge pill */
+  /* Tech badge pill (light) */
   .tech-badge {
-    @apply inline-flex items-center rounded-full border border-white/10 bg-white/5 px-3 py-1
-           text-xs font-medium text-slate-300 transition-all duration-300
-           hover:border-white/30 hover:text-white hover:bg-white/10 hover:-translate-y-0.5;
+    @apply inline-flex items-center rounded-full border border-surface-300 bg-white px-3 py-1
+           text-xs font-medium text-navy-700 transition-all duration-300
+           hover:border-brand-400 hover:text-brand-700 hover:bg-brand-50 hover:-translate-y-0.5;
   }
 
-  /* Form field */
+  /* Form field (light) */
   .field {
-    @apply w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white
-           placeholder:text-slate-500 transition-colors
-           focus:border-brand-500/60 focus:outline-none focus:ring-2 focus:ring-brand-500/20;
+    @apply w-full rounded-xl border border-surface-300 bg-white px-4 py-3 text-sm text-navy-800
+           placeholder:text-slate-400 transition-colors
+           focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/20;
   }
+
+  /* Icon tile — light square with brand icon */
+  .icon-tile {
+    @apply grid h-12 w-12 place-items-center rounded-xl bg-brand-50 text-brand-600 ring-1 ring-brand-100;
+  }
+
+  /* Section backgrounds */
+  .section-light { @apply bg-surface-50; }
+  .section-tint  { @apply bg-surface-100; }
+  .section-navy  { @apply bg-navy-800 text-slate-300; }
+  .section-navy h1, .section-navy h2, .section-navy h3, .section-navy h4 { @apply text-white; }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Decorative backgrounds                                             */
+/* ------------------------------------------------------------------ */
+
+/* Fine dot grid on light sections */
+.bg-dots {
+  background-image: radial-gradient(rgba(28, 50, 69, 0.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Soft blue gradient wash */
+.bg-wash {
+  background:
+    radial-gradient(60% 50% at 100% 0%, rgba(46, 158, 205, 0.10), transparent 60%),
+    radial-gradient(50% 40% at 0% 100%, rgba(28, 50, 69, 0.06), transparent 60%);
+}
+
+/* Navy hero backdrop with a blue swoosh glow (echoes the logo) */
+.bg-hero {
+  background:
+    radial-gradient(70% 60% at 85% 20%, rgba(46, 158, 205, 0.28), transparent 60%),
+    radial-gradient(50% 50% at 10% 100%, rgba(46, 158, 205, 0.12), transparent 60%),
+    linear-gradient(180deg, #0f1d2b 0%, #172634 60%, #1c3245 100%);
+}
+
+/* Moving grid backdrop (subtle, on navy) */
+@keyframes grid-pan {
+  from { background-position: 0 0; }
+  to { background-position: 0 56px; }
+}
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(140, 202, 232, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(140, 202, 232, 0.06) 1px, transparent 1px);
+  background-size: 56px 56px;
+  animation: grid-pan 6s linear infinite;
 }
 
 /* ------------------------------------------------------------------ */
 /*  Keyframes & motion utilities                                       */
 /* ------------------------------------------------------------------ */
 
-/* Aurora / floating gradient blobs */
 @keyframes float-slow {
   0%, 100% { transform: translate(0, 0) scale(1); }
   33% { transform: translate(40px, -30px) scale(1.1); }
@@ -140,34 +235,19 @@
   will-change: transform;
 }
 
-/* Gentle vertical bobbing (floating icons / shapes) */
 @keyframes bob {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-14px); }
 }
 .animate-bob { animation: bob 5s ease-in-out infinite; }
 
-/* Slow rotation for abstract 3D shapes */
 @keyframes spin-slow {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 .animate-spin-slow { animation: spin-slow 30s linear infinite; }
 
-/* Moving grid backdrop (hero) */
-@keyframes grid-pan {
-  from { background-position: 0 0; }
-  to { background-position: 0 56px; }
-}
-.bg-grid {
-  background-image:
-    linear-gradient(rgba(96, 165, 250, 0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(96, 165, 250, 0.07) 1px, transparent 1px);
-  background-size: 56px 56px;
-  animation: grid-pan 6s linear infinite;
-}
-
-/* Drifting particles (pure CSS dots) */
+/* Drifting particles */
 @keyframes particle-drift {
   0% { transform: translateY(0); opacity: 0; }
   10% { opacity: 0.7; }
@@ -178,7 +258,7 @@
   position: absolute;
   bottom: -10px;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(103, 232, 249, 0.9), rgba(59, 130, 246, 0.2));
+  background: radial-gradient(circle, rgba(140, 202, 232, 0.9), rgba(46, 158, 205, 0.2));
   animation: particle-drift var(--pd, 16s) linear infinite;
   animation-delay: var(--pdelay, 0s);
   will-change: transform, opacity;
@@ -186,8 +266,8 @@
 
 /* Pulsing glow ring (CTA / preloader) */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.35); }
-  50% { box-shadow: 0 0 0 18px rgba(34, 211, 238, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(46, 158, 205, 0.4); }
+  50% { box-shadow: 0 0 0 16px rgba(46, 158, 205, 0); }
 }
 .animate-pulse-glow { animation: pulse-glow 2.4s ease-in-out infinite; }
 
@@ -216,13 +296,13 @@
   position: relative;
   border: 1px solid transparent;
   background:
-    linear-gradient(var(--color-ink-850), var(--color-ink-850)) padding-box,
+    linear-gradient(#ffffff, #ffffff) padding-box,
     conic-gradient(
       from var(--border-angle),
-      rgba(59, 130, 246, 0.05),
-      rgba(59, 130, 246, 0.6),
-      rgba(34, 211, 238, 0.8),
-      rgba(59, 130, 246, 0.05)
+      rgba(46, 158, 205, 0.08),
+      rgba(46, 158, 205, 0.7),
+      rgba(28, 50, 69, 0.8),
+      rgba(46, 158, 205, 0.08)
     ) border-box;
   animation: border-spin 6s linear infinite;
 }

@@ -26,11 +26,12 @@ export default function Testimonials() {
   const current = testimonials[index]
 
   return (
-    <section id="testimonials" className="relative py-24">
-      <div className="pointer-events-none absolute right-1/4 bottom-0 -z-10 h-[380px] w-[550px] rounded-full bg-brand-600/10 blur-[140px]" />
+    <section id="testimonials" className="section-navy relative overflow-hidden py-24">
+      <div className="bg-grid pointer-events-none absolute inset-0 opacity-60" />
 
-      <div className="container-px">
+      <div className="container-px relative">
         <SectionHeading
+          tone="light"
           eyebrow="Client Feedback"
           title="What Business Owners Say"
           subtitle="Real feedback from the shops, restaurants, and businesses running our software every day."
@@ -38,11 +39,11 @@ export default function Testimonials() {
 
         <Reveal className="mx-auto mt-14 max-w-3xl">
           <div
-            className="glass relative overflow-hidden p-8 sm:p-12"
+            className="card-dark relative overflow-hidden p-8 sm:p-12"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
-            <Quote className="absolute left-6 top-6 h-16 w-16 text-brand-500/10" />
+            <Quote className="absolute left-6 top-6 h-16 w-16 text-brand-400/20" />
 
             <div className="relative min-h-[180px] sm:min-h-[150px]">
               <AnimatePresence mode="wait" custom={direction}>
@@ -60,12 +61,12 @@ export default function Testimonials() {
                       <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <blockquote className="mt-5 text-lg leading-relaxed text-slate-200 sm:text-xl">
+                  <blockquote className="mt-5 text-lg leading-relaxed text-white/90 sm:text-xl">
                     “{current.quote}”
                   </blockquote>
                   <figcaption className="mt-6">
                     <p className="font-display font-bold text-white">{current.name}</p>
-                    <p className="text-sm text-accent-300">{current.role}</p>
+                    <p className="text-sm text-brand-300">{current.role}</p>
                   </figcaption>
                 </motion.figure>
               </AnimatePresence>
@@ -76,7 +77,7 @@ export default function Testimonials() {
               <button
                 onClick={() => go(-1)}
                 aria-label="Previous testimonial"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-slate-300 transition-colors hover:bg-white/10 hover:text-white"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition-colors hover:border-brand-500 hover:bg-brand-500"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
@@ -90,7 +91,7 @@ export default function Testimonials() {
                     }}
                     aria-label={`Go to testimonial ${i + 1}`}
                     className={`h-2 rounded-full transition-all duration-300 ${
-                      i === index ? 'w-7 bg-gradient-to-r from-brand-500 to-accent-400' : 'w-2 bg-white/20 hover:bg-white/40'
+                      i === index ? 'w-7 bg-brand-400' : 'w-2 bg-white/25 hover:bg-white/50'
                     }`}
                   />
                 ))}
@@ -98,7 +99,7 @@ export default function Testimonials() {
               <button
                 onClick={() => go(1)}
                 aria-label="Next testimonial"
-                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-slate-300 transition-colors hover:bg-white/10 hover:text-white"
+                className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-white transition-colors hover:border-brand-500 hover:bg-brand-500"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>

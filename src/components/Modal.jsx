@@ -25,7 +25,7 @@ export default function Modal({ open, onClose, children }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[80] grid place-items-center bg-ink-950/80 p-4 backdrop-blur-sm sm:p-8"
+          className="fixed inset-0 z-[80] grid place-items-center bg-navy-950/60 p-4 backdrop-blur-sm sm:p-8"
           onClick={onClose}
           role="dialog"
           aria-modal="true"
@@ -37,14 +37,14 @@ export default function Modal({ open, onClose, children }) {
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
             onClick={(e) => e.stopPropagation()}
             className="relative max-h-[85vh] w-full max-w-2xl overflow-y-auto rounded-3xl
-                       border border-white/10 bg-ink-850 p-6 shadow-2xl shadow-brand-600/10 sm:p-8"
+                       border border-surface-300 bg-white p-6 shadow-2xl shadow-navy-900/20 sm:p-8"
           >
             <button
               onClick={onClose}
               aria-label="Close dialog"
               className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full
-                         border border-white/10 bg-white/5 text-slate-300 transition-colors
-                         hover:bg-white/10 hover:text-white"
+                         border border-surface-300 bg-surface-100 text-navy-700 transition-colors
+                         hover:bg-brand-50 hover:text-brand-700"
             >
               <X className="h-4 w-4" />
             </button>

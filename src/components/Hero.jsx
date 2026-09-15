@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import {
-  ArrowUpRight, Globe, Activity, Store, UtensilsCrossed, ShoppingCart, Warehouse,
+  ArrowRight, ArrowUpRight, CheckCircle2, Store, UtensilsCrossed, ShoppingCart, Warehouse,
+  TrendingUp, Boxes, ScanBarcode, BarChart3, ShieldCheck,
 } from 'lucide-react'
-import { hero, images } from '../data/site'
+import { hero } from '../data/site'
 
 /* Phrases emphasised in the hero paragraph */
 const HIGHLIGHTS = ['automate operations', 'manage sales', 'track inventory', 'handle accounting']
@@ -25,12 +26,9 @@ const fadeUp = (delay) => ({
   transition: { duration: 0.7, delay, ease: [0.22, 1, 0.36, 1] },
 })
 
-/* Uptime waveform points for the right-hand status card */
-const WAVE = 'M0,28 L30,28 L40,12 L48,44 L56,4 L64,36 L72,22 L84,28 L200,28'
-
 const ROTATE_MS = 2600
 
-/** Last word of the headline cycles with a gradient treatment. */
+/** Last word of the headline cycles with a blue gradient treatment. */
 function RotatingWord() {
   const [index, setIndex] = useState(0)
 
@@ -41,7 +39,6 @@ function RotatingWord() {
 
   return (
     <span className="relative inline-grid align-bottom">
-      {/* invisible longest word reserves width so the layout never jumps */}
       <span className="invisible col-start-1 row-start-1">
         {hero.rotatingWords.reduce((a, b) => (a.length >= b.length ? a : b), '')}
       </span>
@@ -53,82 +50,173 @@ function RotatingWord() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: '-100%', opacity: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="text-gradient inline-block"
+            className="text-gradient-light inline-block"
           >
             {hero.rotatingWords[index]}
           </motion.span>
         </AnimatePresence>
       </span>
-      {/* hand-drawn underline flourish */}
+      {/* swoosh underline — echoes the logo */}
       <svg
-        className="absolute -bottom-3 left-0 w-full sm:-bottom-4"
+        className="absolute -bottom-2 left-0 w-full sm:-bottom-3"
         viewBox="0 0 120 10"
         fill="none"
         preserveAspectRatio="none"
         aria-hidden="true"
       >
         <motion.path
-          d="M3,8 Q60,1 117,6"
-          stroke="url(#hero-underline)"
+          d="M3,8 Q60,-2 117,5"
+          stroke="var(--color-brand-500)"
           strokeWidth="3"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
           transition={{ delay: 2.1, duration: 0.8, ease: 'easeOut' }}
         />
-        <defs>
-          <linearGradient id="hero-underline" x1="0" x2="1" y1="0" y2="0">
-            <stop offset="0%" stopColor="var(--color-brand-500)" />
-            <stop offset="100%" stopColor="var(--color-accent-400)" />
-          </linearGradient>
-        </defs>
       </svg>
     </span>
   )
 }
 
-export default function Hero() {
-  return (
-    <section id="home" className="relative overflow-hidden pb-16 pt-32 lg:pt-36">
-      {/* dark silk-wave backdrop, hue-shifted toward purple */}
-      <div className="absolute inset-0 -z-10">
-        <img
-          src={images.hero}
-          alt=""
-          aria-hidden="true"
-          className="h-full w-full object-cover"
-          style={{ filter: 'hue-rotate(35deg) saturate(1.25)' }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink-950/70 via-ink-950/30 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink-950/40 via-transparent to-ink-950" />
-        <div className="aurora-blob absolute -right-24 top-1/4 h-[520px] w-[520px] rounded-full bg-brand-600/30 blur-[140px]" />
-        <div className="aurora-blob absolute left-1/3 bottom-0 h-[420px] w-[420px] rounded-full bg-accent-500/20 blur-[130px]" style={{ animationDelay: '-8s' }} />
-      </div>
+/* Bars for the mock sales chart in the dashboard card */
+const BARS = [42, 58, 50, 74, 66, 88, 80]
 
-      <div className="container-px">
-        {/* ---------------- copy ---------------- */}
-        <div className="max-w-4xl">
-          {/* stacked outlined tag pills */}
-          <div className="mb-9 flex flex-col items-start gap-1.5">
-            {hero.tags.map((tag, i) => (
-              <motion.span
-                key={tag}
-                initial={{ opacity: 0, x: -24, rotate: i % 2 === 0 ? -3 : 2 }}
-                animate={{ opacity: 1, x: 0, rotate: i % 2 === 0 ? -3 : 2 }}
-                whileHover={{ rotate: 0, scale: 1.06 }}
-                transition={{ delay: 1.25 + i * 0.12, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                className="inline-flex items-center gap-2 rounded-full border border-brand-400/50 bg-gradient-to-r from-brand-500/20 to-accent-500/10 px-4 py-1.5 text-xs font-bold text-white shadow-[0_0_24px_-8px_rgba(139,92,246,0.7)] backdrop-blur"
-                style={{ marginLeft: `${i * 26}px` }}
+/** Product-style dashboard mock — sells "business software" at a glance. */
+function DashboardMock() {
+  return (
+    <div className="relative">
+      {/* main dashboard card */}
+      <motion.div
+        {...fadeUp(1.7)}
+        className="relative overflow-hidden rounded-2xl border border-white/10 bg-white shadow-[0_30px_80px_-24px_rgba(0,0,0,0.6)]"
+      >
+        {/* window chrome */}
+        <div className="flex items-center gap-2 border-b border-surface-200 bg-surface-100 px-4 py-2.5">
+          <span className="h-2.5 w-2.5 rounded-full bg-rose-400" />
+          <span className="h-2.5 w-2.5 rounded-full bg-amber-400" />
+          <span className="h-2.5 w-2.5 rounded-full bg-emerald-400" />
+          <span className="ml-3 text-[11px] font-semibold text-slate-400">FR Business Dashboard</span>
+        </div>
+
+        <div className="grid grid-cols-[52px_1fr]">
+          {/* sidebar */}
+          <div className="flex flex-col items-center gap-3 border-r border-surface-200 bg-navy-800 py-4">
+            {[BarChart3, ScanBarcode, Boxes, TrendingUp, ShieldCheck].map((Cmp, i) => (
+              <span
+                key={i}
+                className={`grid h-8 w-8 place-items-center rounded-lg ${
+                  i === 0 ? 'bg-brand-500 text-white' : 'text-slate-400'
+                }`}
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-brand-400 to-accent-400" />
-                {tag}
-              </motion.span>
+                <Cmp className="h-4 w-4" />
+              </span>
             ))}
           </div>
 
+          {/* content */}
+          <div className="p-4 sm:p-5">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">Today's Sales</p>
+                <p className="mt-1 font-display text-2xl font-extrabold text-navy-800">Rs 184,250</p>
+              </div>
+              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-bold text-emerald-600">
+                <TrendingUp className="h-3 w-3" /> +12.4%
+              </span>
+            </div>
+
+            {/* bar chart */}
+            <div className="mt-4 flex h-24 items-end gap-2">
+              {BARS.map((h, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ height: 0 }}
+                  animate={{ height: `${h}%` }}
+                  transition={{ delay: 2 + i * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  className={`flex-1 rounded-t-md ${i === BARS.length - 2 ? 'bg-brand-500' : 'bg-brand-100'}`}
+                />
+              ))}
+            </div>
+
+            {/* mini stat tiles */}
+            <div className="mt-4 grid grid-cols-3 gap-2">
+              {[
+                ['Orders', '312'],
+                ['Low Stock', '7'],
+                ['Profit', '38%'],
+              ].map(([k, v]) => (
+                <div key={k} className="rounded-lg border border-surface-200 bg-surface-100 px-3 py-2">
+                  <p className="text-[10px] font-semibold text-slate-400">{k}</p>
+                  <p className="font-display text-base font-extrabold text-navy-800">{v}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* floating badge — inventory */}
+      <motion.div
+        initial={{ opacity: 0, x: 24, y: 10 }}
+        animate={{ opacity: 1, x: 0, y: 0 }}
+        transition={{ delay: 2.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        className="animate-bob absolute -top-8 -left-6 hidden items-center gap-3 rounded-xl border border-white/10 bg-navy-700/95 p-3 pr-4 shadow-xl backdrop-blur sm:flex lg:-left-14"
+      >
+        <span className="grid h-9 w-9 place-items-center rounded-lg bg-brand-500 text-white">
+          <Boxes className="h-4 w-4" />
+        </span>
+        <div>
+          <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Inventory</p>
+          <p className="text-sm font-bold text-white">Stock synced</p>
+        </div>
+      </motion.div>
+
+      {/* floating badge — POS */}
+      <motion.div
+        initial={{ opacity: 0, x: -24, y: 10 }}
+        animate={{ opacity: 1, x: 0, y: 0 }}
+        transition={{ delay: 2.35, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        style={{ animationDelay: '-2.5s' }}
+        className="animate-bob absolute -bottom-9 right-6 hidden items-center gap-3 rounded-xl border border-surface-200 bg-white p-3 pr-4 shadow-xl sm:flex lg:-right-6"
+      >
+        <span className="grid h-9 w-9 place-items-center rounded-lg bg-emerald-500 text-white">
+          <CheckCircle2 className="h-4 w-4" />
+        </span>
+        <div>
+          <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">POS</p>
+          <p className="text-sm font-bold text-navy-800">Invoice #4821 paid</p>
+        </div>
+      </motion.div>
+    </div>
+  )
+}
+
+export default function Hero() {
+  return (
+    <section id="home" className="bg-hero relative overflow-hidden pb-20 pt-32 text-slate-300 lg:pb-28 lg:pt-40">
+      {/* subtle animated grid + blue glow */}
+      <div className="bg-grid pointer-events-none absolute inset-0 opacity-60" />
+      <div className="aurora-blob pointer-events-none absolute -right-32 top-0 h-[560px] w-[560px] rounded-full bg-brand-500/25 blur-[150px]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-navy-700 to-transparent" />
+
+      <div className="container-px relative grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
+        {/* ---------------- copy ---------------- */}
+        <div>
+          <motion.div {...fadeUp(1.25)} className="flex flex-wrap gap-2">
+            {hero.tags.map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center gap-2 rounded-full border border-brand-400/40 bg-brand-500/10 px-3.5 py-1.5 text-xs font-bold text-brand-200"
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
+                {tag}
+              </span>
+            ))}
+          </motion.div>
+
           <motion.h1
             {...fadeUp(1.45)}
-            className="text-5xl font-extrabold leading-[1.02] tracking-tight sm:text-7xl lg:text-[5.5rem]"
+            className="mt-7 text-5xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl"
           >
             Build Software
             <br />
@@ -137,27 +225,27 @@ export default function Hero() {
 
           <motion.p
             {...fadeUp(1.55)}
-            className="mt-8 max-w-xl text-base leading-relaxed text-slate-400 sm:text-lg"
+            className="mt-7 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg"
           >
             <HighlightedText text={hero.subheading} />
           </motion.p>
 
           <motion.div {...fadeUp(1.65)} className="mt-9 flex flex-wrap items-center gap-4">
             <a href="#contact" className="btn-primary animate-pulse-glow px-8 py-4 text-base">
-              Get Started <ArrowUpRight className="h-4 w-4" />
+              Get Free Consultation <ArrowRight className="h-4 w-4" />
             </a>
-            <a href="#portfolio" className="btn-ghost border-white/40 px-8 py-4 text-base">
+            <a href="#portfolio" className="btn-ghost px-8 py-4 text-base">
               View Our Work <ArrowUpRight className="h-4 w-4" />
             </a>
           </motion.div>
 
-          {/* trust strip — industry icons + emphasised line */}
+          {/* trust strip */}
           <motion.div {...fadeUp(1.75)} className="mt-10 flex flex-wrap items-center gap-4">
             <div className="flex -space-x-2.5">
               {[Store, UtensilsCrossed, ShoppingCart, Warehouse].map((Cmp, i) => (
                 <span
                   key={i}
-                  className="grid h-10 w-10 place-items-center rounded-full border border-brand-500/40 bg-ink-800 text-brand-300 ring-2 ring-ink-950"
+                  className="grid h-10 w-10 place-items-center rounded-full border border-brand-400/40 bg-navy-700 text-brand-300 ring-2 ring-navy-800"
                 >
                   <Cmp className="h-4 w-4" />
                 </span>
@@ -170,90 +258,9 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* ---------------- bottom card trio ---------------- */}
-        <div className="mt-16 grid items-end gap-5 lg:mt-20 lg:grid-cols-3">
-          {/* purple gradient service card */}
-          <motion.div
-            {...fadeUp(1.8)}
-            className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-600 to-accent-500 p-7"
-          >
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_0%,rgba(255,255,255,0.25),transparent_55%)]" />
-            <span className="relative grid h-11 w-11 place-items-center rounded-full bg-white/20 text-white backdrop-blur">
-              <Globe className="h-5 w-5" />
-            </span>
-            <h3 className="relative mt-5 text-2xl font-bold text-white">
-              Web &amp; Desktop App Development
-            </h3>
-            <div className="relative mt-4 flex flex-wrap gap-2">
-              {['Web Apps', 'Desktop Apps'].map((chip) => (
-                <span key={chip} className="rounded-full border border-white/40 px-3.5 py-1 text-xs font-semibold text-white">
-                  {chip}
-                </span>
-              ))}
-            </div>
-            <a
-              href="#services"
-              className="relative mt-6 inline-flex items-center gap-2 rounded-full border border-white/60 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white hover:text-brand-700"
-            >
-              Get Started <ArrowUpRight className="h-4 w-4" />
-            </a>
-          </motion.div>
-
-          {/* centerpiece image card */}
-          <motion.a
-            {...fadeUp(1.9)}
-            href="#services"
-            className="group relative block h-80 overflow-hidden rounded-3xl border border-white/10 lg:h-[400px]"
-          >
-            <img
-              src={images.heroCard}
-              alt="Futuristic robot — custom software development"
-              className="absolute inset-0 h-full w-full object-cover brightness-125 transition-transform duration-700 ease-out group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(139,92,246,0.35),transparent_65%)]" />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink-950/95 via-transparent to-transparent" />
-            <span className="absolute left-1/2 top-1/2 grid h-12 w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border border-white/40 bg-ink-950/40 text-white backdrop-blur transition-all duration-300 group-hover:scale-110 group-hover:bg-white group-hover:text-ink-950">
-              <ArrowUpRight className="h-5 w-5" />
-            </span>
-            <h3 className="absolute inset-x-6 bottom-6 text-center text-2xl font-bold text-white">
-              Custom Software Development
-            </h3>
-          </motion.a>
-
-          {/* uptime status card */}
-          <motion.div
-            {...fadeUp(2)}
-            className="glass relative overflow-hidden rounded-3xl p-7"
-          >
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="font-display text-4xl font-extrabold text-white">99.9%</p>
-                <p className="mt-1 text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
-                  Guaranteed Uptime
-                </p>
-              </div>
-              <span className="grid h-10 w-10 place-items-center rounded-full border border-brand-500/50 text-brand-300">
-                <Activity className="h-4 w-4" />
-              </span>
-            </div>
-
-            <div className="mt-6 flex items-center justify-between text-[11px] font-bold uppercase tracking-[0.2em]">
-              <span className="text-slate-400">System Status</span>
-              <span className="inline-flex items-center gap-1.5 text-emerald-400">
-                <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-emerald-400" /> Operational
-              </span>
-            </div>
-            <svg viewBox="0 0 200 56" className="mt-3 h-14 w-full" preserveAspectRatio="none" aria-hidden="true">
-              <path d={WAVE} fill="none" stroke="url(#wave-grad)" strokeWidth="2.5" strokeLinejoin="round" />
-              <defs>
-                <linearGradient id="wave-grad" x1="0" x2="1" y1="0" y2="0">
-                  <stop offset="0%" stopColor="var(--color-brand-500)" />
-                  <stop offset="100%" stopColor="var(--color-accent-400)" />
-                </linearGradient>
-              </defs>
-            </svg>
-            <h3 className="mt-4 text-center text-2xl font-bold text-white">Reliable &amp; Supported</h3>
-          </motion.div>
+        {/* ---------------- visual ---------------- */}
+        <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+          <DashboardMock />
         </div>
       </div>
     </section>

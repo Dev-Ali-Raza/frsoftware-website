@@ -3,15 +3,13 @@ import Reveal from './Reveal'
 import SectionHeading from './SectionHeading'
 import { technologies } from '../data/site'
 
-/** Technology stack — two opposing marquee rows of glowing badges. */
+/** Technology stack — two opposing marquee rows of badges. */
 export default function Technologies() {
   const rowA = technologies.filter((_, i) => i % 2 === 0)
   const rowB = technologies.filter((_, i) => i % 2 === 1)
 
   return (
-    <section id="technologies" className="relative py-24">
-      <div className="pointer-events-none absolute left-1/3 top-0 -z-10 h-[350px] w-[550px] rounded-full bg-brand-600/8 blur-[140px]" />
-
+    <section id="technologies" className="section-tint relative py-24">
       <div className="container-px">
         <SectionHeading
           eyebrow="Tech Stack"
@@ -34,9 +32,9 @@ export default function Technologies() {
               {[...row, ...row, ...row, ...row].map((tech, i) => (
                 <span
                   key={`${tech}-${i}`}
-                  className="glass flex items-center gap-2.5 whitespace-nowrap rounded-full px-6 py-3 text-sm font-semibold text-slate-200 transition-colors duration-300 hover:border-accent-400/50 hover:text-accent-300"
+                  className="flex items-center gap-2.5 whitespace-nowrap rounded-full border border-surface-300 bg-white px-6 py-3 text-sm font-semibold text-navy-700 shadow-sm transition-colors duration-300 hover:border-brand-400 hover:text-brand-700"
                 >
-                  <Cpu className="h-4 w-4 text-brand-400" />
+                  <Cpu className="h-4 w-4 text-brand-500" />
                   {tech}
                 </span>
               ))}

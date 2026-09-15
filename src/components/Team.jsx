@@ -7,9 +7,7 @@ import { team, teamSection } from '../data/site'
 
 export default function Team() {
   return (
-    <section id="team" className="relative py-24">
-      <div className="pointer-events-none absolute left-1/2 top-1/4 -z-10 h-[420px] w-[700px] -translate-x-1/2 rounded-full bg-brand-600/10 blur-[150px]" />
-
+    <section id="team" className="section-light relative py-24">
       <div className="container-px">
         <SectionHeading
           eyebrow="Our Team"
@@ -21,18 +19,18 @@ export default function Team() {
           {team.map((member) => (
             <motion.div key={member.name} variants={staggerItem}>
               <TiltCard className="animated-border h-full rounded-3xl p-[1px]">
-                <div className="glass relative flex h-full flex-col items-center rounded-3xl border-0 bg-ink-850/90 p-8 text-center">
+                <div className="relative flex h-full flex-col items-center rounded-3xl bg-white p-8 text-center">
                   {/* avatar */}
                   <div className="relative">
                     <span className="animate-pulse-glow absolute inset-0 rounded-full" />
-                    <span className="relative grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br from-brand-600 via-brand-500 to-accent-500 font-display text-2xl font-extrabold text-white shadow-xl shadow-brand-600/30">
+                    <span className="relative grid h-24 w-24 place-items-center rounded-full bg-gradient-to-br from-navy-700 to-brand-500 font-display text-2xl font-extrabold text-white shadow-xl shadow-brand-500/25">
                       {member.initials}
                     </span>
                   </div>
 
-                  <h3 className="mt-5 text-xl font-bold">{member.name}</h3>
-                  <p className="mt-1 text-sm font-semibold text-accent-300">{member.role}</p>
-                  <p className="mt-4 text-sm leading-relaxed text-slate-400">{member.intro}</p>
+                  <h3 className="mt-5 text-xl font-bold text-navy-800">{member.name}</h3>
+                  <p className="mt-1 text-sm font-semibold text-brand-600">{member.role}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-slate-600">{member.intro}</p>
 
                   {/* skills */}
                   <div className="mt-5 flex flex-wrap justify-center gap-1.5">
@@ -58,14 +56,14 @@ export default function Team() {
                       target="_blank"
                       rel="noreferrer"
                       aria-label={`${member.name} on GitHub`}
-                      className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-slate-300 transition-colors hover:bg-white/10 hover:text-white"
+                      className="grid h-10 w-10 place-items-center rounded-full border border-surface-300 bg-surface-100 text-navy-700 transition-colors hover:bg-brand-50 hover:text-brand-700"
                     >
                       <Github className="h-4 w-4" />
                     </a>
                     <a
                       href="#"
                       aria-label={`${member.name} on LinkedIn`}
-                      className="grid h-10 w-10 place-items-center rounded-full border border-white/15 bg-white/5 text-slate-300 transition-colors hover:bg-white/10 hover:text-white"
+                      className="grid h-10 w-10 place-items-center rounded-full border border-surface-300 bg-surface-100 text-navy-700 transition-colors hover:bg-brand-50 hover:text-brand-700"
                     >
                       <Linkedin className="h-4 w-4" />
                     </a>

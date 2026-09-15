@@ -6,9 +6,7 @@ import { whyChooseUs } from '../data/site'
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="relative py-24">
-      <div className="pointer-events-none absolute right-0 top-0 -z-10 h-[400px] w-[450px] rounded-full bg-brand-600/10 blur-[140px]" />
-
+    <section id="why-us" className="section-tint relative py-24">
       <div className="container-px">
         <SectionHeading
           eyebrow="Why Choose Us"
@@ -21,14 +19,14 @@ export default function WhyChooseUs() {
             <motion.div
               key={reason.title}
               variants={staggerItem}
-              className="glass-glow group flex items-start gap-4 p-5"
+              className="card-hover group flex items-start gap-4 p-5"
             >
-              <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-gradient-to-br from-brand-600/35 to-accent-500/15 text-accent-300 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+              <span className="icon-tile shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
                 <Icon name={reason.icon} className="h-5 w-5" />
               </span>
               <div>
-                <h3 className="text-sm font-bold text-white">{reason.title}</h3>
-                <p className="mt-1 text-xs leading-relaxed text-slate-400">{reason.text}</p>
+                <h3 className="text-sm font-bold text-navy-800">{reason.title}</h3>
+                <p className="mt-1 text-xs leading-relaxed text-slate-600">{reason.text}</p>
               </div>
             </motion.div>
           ))}

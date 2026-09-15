@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowUp } from 'lucide-react'
-import { company } from '../data/site'
+import { openWhatsApp, waMeUrl } from '../lib/whatsapp'
 
 /** Official WhatsApp glyph (lucide has no brand icons). */
 export function WhatsAppIcon({ className = 'h-5 w-5' }) {
@@ -33,9 +33,9 @@ export default function FloatingActions() {
             exit={{ opacity: 0, y: 12 }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             aria-label="Back to top"
-            className="grid h-11 w-11 place-items-center rounded-full border border-white/15
-                       bg-ink-800/90 text-slate-200 shadow-lg backdrop-blur
-                       transition-colors hover:bg-ink-700 hover:text-white"
+            className="grid h-11 w-11 place-items-center rounded-full border border-surface-300
+                       bg-white text-navy-800 shadow-lg
+                       transition-colors hover:bg-brand-50 hover:text-brand-700"
           >
             <ArrowUp className="h-5 w-5" />
           </motion.button>
@@ -43,9 +43,10 @@ export default function FloatingActions() {
       </AnimatePresence>
 
       <motion.a
-        href={company.whatsapp}
+        href={waMeUrl}
         target="_blank"
         rel="noreferrer"
+        onClick={openWhatsApp}
         aria-label="Chat on WhatsApp"
         initial={{ opacity: 0, scale: 0.6 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -53,7 +54,7 @@ export default function FloatingActions() {
         whileHover={{ scale: 1.08 }}
         className="animate-pulse-glow grid h-14 w-14 place-items-center rounded-full
                    bg-gradient-to-br from-emerald-500 to-green-600 text-white
-                   shadow-xl shadow-emerald-600/40"
+                   shadow-xl shadow-emerald-500/40"
       >
         <WhatsAppIcon className="h-7 w-7" />
       </motion.a>

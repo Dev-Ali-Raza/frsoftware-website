@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Menu, X, ArrowRight } from 'lucide-react'
+import { Menu, X, ArrowRight, Phone } from 'lucide-react'
 import Logo from './Logo'
 import { navLinks, company } from '../data/site'
 
@@ -44,32 +44,32 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 bg-white transition-all duration-300 ${
         scrolled
-          ? 'border-b border-white/10 bg-ink-900/80 py-2.5 backdrop-blur-xl'
-          : 'bg-transparent py-4'
+          ? 'border-b border-surface-300 py-2 shadow-[0_8px_30px_-18px_rgba(15,29,43,0.35)]'
+          : 'border-b border-transparent py-3'
       }`}
     >
       <nav className="container-px flex items-center justify-between gap-4">
-        <Logo withTagline={false} />
+        <Logo />
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-2 lg:flex">
+        <ul className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className={`relative rounded-full px-3.5 py-2 text-sm font-medium transition-colors ${
+                className={`relative rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
                   active === link.href
-                    ? 'text-brand-300'
-                    : 'text-slate-300 hover:text-white'
+                    ? 'text-brand-600'
+                    : 'text-navy-600 hover:text-navy-900'
                 }`}
               >
                 {link.label}
                 {active === link.href && (
                   <motion.span
                     layoutId="nav-active"
-                    className="absolute inset-x-3 bottom-0.5 h-0.5 rounded-full bg-gradient-to-r from-brand-500 to-accent-400"
+                    className="absolute inset-x-4 -bottom-0.5 h-0.5 rounded-full bg-brand-500"
                     transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                   />
                 )}
@@ -78,8 +78,15 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="hidden lg:block">
-          <a href="#contact" className="btn-primary whitespace-nowrap">
+        <div className="hidden items-center gap-3 lg:flex">
+          <a
+            href={`tel:${company.phonePlain}`}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-navy-700 transition-colors hover:text-brand-600"
+          >
+            <Phone className="h-4 w-4 text-brand-500" />
+            {company.phone}
+          </a>
+          <a href="#contact" className="btn-primary whitespace-nowrap px-5 py-2.5">
             Free Consultation <ArrowRight className="h-4 w-4" />
           </a>
         </div>
@@ -87,7 +94,7 @@ export default function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setOpen((v) => !v)}
-          className="grid h-10 w-10 place-items-center rounded-lg border border-white/10 bg-white/5 text-white lg:hidden"
+          className="grid h-10 w-10 place-items-center rounded-lg border border-surface-300 bg-white text-navy-800 lg:hidden"
           aria-label="Toggle menu"
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -102,7 +109,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="max-h-[calc(100vh-4.5rem)] overflow-y-auto border-b border-white/10 bg-ink-900/95 backdrop-blur-xl lg:hidden"
+            className="max-h-[calc(100vh-4.5rem)] overflow-y-auto border-b border-surface-300 bg-white lg:hidden"
           >
             <ul className="container-px flex flex-col gap-1 py-5">
               {navLinks.map((link) => (
@@ -110,10 +117,10 @@ export default function Navbar() {
                   <a
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className={`block rounded-xl px-4 py-3 text-base font-medium transition-colors ${
+                    className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
                       active === link.href
-                        ? 'bg-brand-500/15 text-white'
-                        : 'text-slate-200 hover:bg-white/5 hover:text-white'
+                        ? 'bg-brand-50 text-brand-700'
+                        : 'text-navy-700 hover:bg-surface-100 hover:text-navy-900'
                     }`}
                   >
                     {link.label}
@@ -123,6 +130,11 @@ export default function Navbar() {
               <li className="pt-2">
                 <a href="#contact" onClick={() => setOpen(false)} className="btn-primary w-full">
                   Free Consultation <ArrowRight className="h-4 w-4" />
+                </a>
+              </li>
+              <li className="pt-1">
+                <a href={`tel:${company.phonePlain}`} className="btn-secondary w-full">
+                  <Phone className="h-4 w-4" /> {company.phone}
                 </a>
               </li>
               <li className="pt-1 text-center text-xs text-slate-500">{company.tagline}</li>
