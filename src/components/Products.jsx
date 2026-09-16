@@ -6,7 +6,8 @@ import Icon from './Icon'
 import Modal from './Modal'
 import { StaggerGroup, staggerItem } from './Reveal'
 import SectionHeading from './SectionHeading'
-import { products } from '../data/site'
+import { products, projects } from '../data/site'
+import { projectThumb, projectMedia } from '../lib/projects'
 
 /* Card shows the first few features; the modal shows everything. */
 const PREVIEW_COUNT = 5
@@ -29,7 +30,7 @@ export default function Products() {
               key={product.name}
               variants={staggerItem}
               className={`card-hover group relative flex flex-col overflow-hidden p-7 ${
-                product.featured ? 'lg:-mt-3 lg:mb-3 border-brand-400 ring-1 ring-brand-200' : ''
+                product.featured ? 'border-brand-400 ring-1 ring-brand-200' : ''
               }`}
             >
               <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-navy-700 to-brand-500" />
@@ -57,12 +58,37 @@ export default function Products() {
                 <h3 className="mt-5 text-xl font-bold text-navy-800">{product.name}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-slate-600">{product.description}</p>
 
-                {/* screenshot placeholder */}
-                <div className="mt-5 grid h-32 place-items-center rounded-xl border border-dashed border-surface-300 bg-surface-100">
-                  <span className="flex items-center gap-2 text-xs text-slate-400">
-                    <MonitorPlay className="h-4 w-4" /> Product screenshot
-                  </span>
-                </div>
+                {/* main screenshot (from public/projects/<slug>/) or a placeholder */}
+                {(() => {
+                  const project = projects.find((p) => p.slug === product.slug)
+                  const hasShots = project && projectMedia(project.slug).images.length > 0
+                  if (!hasShots) {
+                    return (
+                      <div className="mt-5 grid h-40 place-items-center rounded-xl border border-dashed border-surface-300 bg-surface-100">
+                        <span className="flex items-center gap-2 text-xs text-slate-400">
+                          <MonitorPlay className="h-4 w-4" /> Screenshots on request
+                        </span>
+                      </div>
+                    )
+                  }
+                  const thumb = projectThumb(project)
+                  return (
+                    <Link
+                      to={`/projects/${product.slug}`}
+                      aria-label={`View ${product.name}`}
+                      className="group/shot relative mt-5 block h-40 overflow-hidden rounded-xl border border-surface-300 bg-surface-100 shadow-[0_8px_24px_-14px_rgba(15,29,43,0.35)]"
+                    >
+                      <img
+                        src={thumb.src}
+                        alt={`${product.name} screenshot`}
+                        loading="lazy"
+                        decoding="async"
+                        className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover/shot:scale-[1.04]"
+                      />
+                      <span className="absolute inset-0 bg-gradient-to-t from-navy-900/30 to-transparent opacity-0 transition-opacity group-hover/shot:opacity-100" />
+                    </Link>
+                  )
+                })()}
 
                 <ul className="mt-5 space-y-2">
                   {product.features.slice(0, PREVIEW_COUNT).map((f) => (
