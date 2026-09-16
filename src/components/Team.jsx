@@ -17,7 +17,7 @@ export default function Team() {
 
         <StaggerGroup className="mx-auto mt-14 grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3" stagger={0.15}>
           {team.map((member) => (
-            <motion.div key={member.name} variants={staggerItem}>
+            <motion.div key={member.name} variants={staggerItem} className="h-full">
               <TiltCard className="animated-border h-full rounded-3xl p-[1px]">
                 <div className="relative flex h-full flex-col items-center rounded-3xl bg-white p-8 text-center">
                   {/* avatar */}

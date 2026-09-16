@@ -25,7 +25,7 @@ export default function TiltCard({ children, className = '', max = 8 }) {
   }
 
   return (
-    <div className="perspective-1200">
+    <div className="perspective-1200 h-full">
       <motion.div
         ref={ref}
         onPointerMove={onMove}
