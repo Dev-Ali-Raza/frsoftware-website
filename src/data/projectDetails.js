@@ -244,23 +244,40 @@ export const projectDetails = {
   },
 
   /* ------------------------------------------------------------------ */
-  'clinic-management-system': {
-    tagline: 'Patients, appointments, and records without the paperwork.',
+  'medicare-hms': {
+    tagline: 'Front desk to final accounts: one login for every department of the hospital, with real double-entry accounting underneath.',
     facts: [
-      { label: 'Platform', value: 'Web application' },
-      { label: 'Stack', value: 'JavaScript · Database' },
-      { label: 'Users', value: 'Reception, doctors, admin' },
-      { label: 'Best for', value: 'Clinics, small hospitals, labs' },
+      { label: 'Platform', value: 'Web application, desktop and tablet' },
+      { label: 'Stack', value: 'Angular 18 · ASP.NET Core 9 · SQL Server 2022' },
+      { label: 'Deployment', value: 'Single server, on-premises or cloud; one database per hospital' },
+      { label: 'Best for', value: 'Hospitals, clinics, diagnostic centres in Pakistan' },
+    ],
+    highlights: [
+      { value: '20', label: 'Modules on one login' },
+      { value: '12', label: 'Pre-filled ultrasound report templates' },
+      { value: '25+', label: 'Date-filtered, printable reports' },
+      { value: 'PKR', label: 'Pakistan locale, letterhead on every print' },
     ],
     overview: [
-      'The Clinic Management System handles the front desk and the consulting room. Reception registers patients and books appointments; doctors see the day\'s list and the patient\'s previous visits; admin gets reports on visits and revenue.',
-      'Patient history stays attached to the patient, so repeat visits are faster and nothing depends on finding a paper file.',
+      'MediCare HMS runs a hospital end to end. Reception registers an OPD visit with a token in seconds; the doctor sees the patient\'s vitals, allergies, history, and prescriptions on one consultation console and orders lab tests from the same screen; the pharmacy sells against live stock; the lab enters results and shares the report over WhatsApp; the ward admits and discharges with a full discharge summary.',
+      'Every one of those actions creates the right accounting entry automatically. An OPD fee becomes an invoice, a pharmacy sale posts cost of goods, a lab test deducts consumables, a stock receipt raises a supplier bill, and payroll posts salaries. The general ledger, trial balance, profit and loss, balance sheet, and cash flow are always current, with no separate accounting package.',
+      'Billing handles the realities of a busy hospital: partial payments, a patient paying one lump sum against many open invoices (split oldest-first with an optional settlement discount), credit notes, and running patient statements. Roles decide which screens each user can open, and an audit trail records every change.',
     ],
     modules: [
-      { icon: 'Users', title: 'Patients', items: ['Patient registration and profiles', 'Visit history and notes', 'Search by name, phone, or ID'] },
-      { icon: 'CalendarDays', title: 'Appointments', items: ['Doctor-wise appointment scheduling', 'Daily queue and status tracking', 'Rescheduling and cancellations'] },
-      { icon: 'Stethoscope', title: 'Clinic Workflow', items: ['Consultation records and prescriptions', 'Fees and receipts', 'Doctor and service management'] },
-      { icon: 'BarChart3', title: 'Reports', items: ['Daily visits and revenue', 'Doctor-wise summaries', 'Patient statistics'] },
+      { icon: 'LayoutDashboard', title: 'Dashboard', items: ['Live KPIs: patients, appointments today, available beds, revenue today', 'Admissions trend and department load charts', 'Upcoming appointments, recent activity, global search'] },
+      { icon: 'Users', title: 'Patient Management', items: ['Registration with auto MR number, demographics, blood group', 'Allergy register shown as a warning banner everywhere', 'Vitals history, visit timeline, prescriptions, lab and ultrasound reports', 'Documents and scans upload; admission history', 'Printable patient card with QR, consultation sheet, prescription, discharge summary, statement'] },
+      { icon: 'Stethoscope', title: 'Consultation Console', items: ['Everything about the patient on one doctor screen', 'Vitals, diagnosis, notes, and prescriptions in one form', 'Medicine picker linked to pharmacy stock', 'Order lab tests directly; consumables deducted automatically', 'Admit / discharge bar with live ward and bed'] },
+      { icon: 'ClipboardList', title: 'OPD Reception & Appointments', items: ['OPD visit with token number in seconds', 'Doctor-wise fees, queue: Waiting → In Consultation → Completed', 'OPD slip in A4 and 80mm thermal; every fee posts to accounts', 'Weekly scheduler by doctor with status tracking'] },
+      { icon: 'Package', title: 'Pharmacy & Inventory', items: ['Medicine master with SKU, category, batch, expiry', 'Stock value and potential profit at a glance', 'Receive stock creates the supplier bill automatically', 'POS-style pharmacy sales with receipt print', 'Low stock and expiry tracking; FIFO cost of goods posted to accounts'] },
+      { icon: 'TestTubes', title: 'Laboratory', items: ['Test catalog with parameters and reference ranges', 'Lab orders with sample time, status, and critical-value flags', 'Results entry, file attachments, letterhead report, WhatsApp PDF share', 'Consumables inventory linked to tests: ordering a test deducts stock', 'Stock, consumption, and usage-by-test reports'] },
+      { icon: 'MonitorDot', title: 'Ultrasound Reporting', items: ['12 templates pre-filled with normal findings; edit only the abnormal lines', 'Study numbers, referred-by and performed-by doctors, clinical history', 'Attach scan images, signature upload, Registered → Reported → Verified', 'Letterhead print and WhatsApp PDF share'] },
+      { icon: 'Building2', title: 'Wards & Beds', items: ['Ward-wise bed map: available / occupied / under cleaning', 'Admit to a bed, discharge with a full discharge summary', 'Admission history per patient'] },
+      { icon: 'Receipt', title: 'Billing & Invoices', items: ['Manual, OPD, and pharmacy invoices in one place', 'Partial payments, multiple payment accounts, credit notes', 'Receive one lump sum against many invoices, split oldest-first', 'Patient statement with running balance; A4 and thermal invoice print', 'Outstanding, overdue, and receivables tracking'] },
+      { icon: 'Briefcase', title: 'HR & Payroll', items: ['Employee records with salary structure, increments, and history', 'Advances with automatic recovery; one-off items (absence, fine, bonus, overtime)', 'Payroll run for any month with preview, payslip print, void with full reversal', 'WhatsApp message to employees for deductions, earnings, payslips', 'Payroll register and staff establishment reports'] },
+      { icon: 'Calculator', title: 'General Ledger & Accounting', items: ['Chart of accounts (~77, editable); journal, receipt, payment, sales, purchase vouchers', 'Day book, ledger by account, opening balances, bank reconciliation', 'Trial balance, P&L, balance sheet, cash flow, tax summary, AR aging', 'Expenses by category, recurring expenses, budgets vs actual', 'Fiscal periods with locking'] },
+      { icon: 'Truck', title: 'Suppliers, Payables & Fixed Assets', items: ['Supplier master with payment terms and opening balances', 'Bills for medicines, reagents, equipment, services; lump-sum payment clears oldest first', 'AP aging report', 'Asset register, straight-line depreciation, disposal with gain / loss'] },
+      { icon: 'BarChart3', title: 'Reports & Analytics', items: ['Revenue and collection, day closing with drill-down to every receipt', 'OPD, patients, appointments, pharmacy stock, laboratory, consumables', 'Billing and receivables, expenses, payroll register', 'Trial balance, P&L, balance sheet, cash flow, day book', 'All date-filtered and printable'] },
+      { icon: 'ShieldCheck', title: 'Settings & Security', items: ['Hospital profile and logo on every print instantly', 'Users, roles, and screen-level permissions (Admin, Doctor, Receptionist, Accountant, Nurse, Pharmacist built in)', 'Hashed passwords, token auth, rate limiting, full audit trail', 'On-demand database backup; multi-hospital ready with isolated databases'] },
     ],
   },
 

@@ -409,6 +409,36 @@ export const projects = [
     accent: 'from-emerald-500 to-teal-800',
   },
   {
+    name: 'MediCare HMS',
+    slug: 'medicare-hms',
+    type: 'Hospital Management ERP',
+    categories: ['Management Systems', 'Web Apps', 'Accounting', 'Inventory', 'Business Automation'],
+    description:
+      'A complete hospital management system from front desk to final accounts: patients, OPD, consultation console, pharmacy, laboratory, ultrasound reporting, wards, billing, HR and payroll, and full double-entry accounting.',
+    technologies: ['Angular 18', '.NET 9', 'SQL Server 2022', 'PWA-ready'],
+    visibility: 'Private',
+    features: [
+      'Patient registration with MR number, allergies, vitals, visit timeline, documents',
+      'Doctor consultation console: vitals, diagnosis, prescriptions, lab orders on one screen',
+      'OPD reception with token numbers, queue status, and thermal / A4 slips',
+      'Appointments scheduler by doctor',
+      'Pharmacy with batches, expiry, POS sales, and FIFO cost of goods',
+      'Laboratory: test catalog, orders, results, consumables stock linked to tests',
+      'Ultrasound reporting with 12 pre-filled templates and WhatsApp PDF sharing',
+      'Wards and beds map, admission, discharge summary',
+      'Billing with partial payments, lump-sum receive, credit notes, patient statements',
+      'HR, payroll, advances, payslips, salary history',
+      'Full double-entry general ledger: vouchers, trial balance, P&L, balance sheet, cash flow',
+      'Suppliers and payables, fixed assets with depreciation',
+      '25+ date-filtered, printable reports',
+      'Roles and screen-level permissions, audit trail, database backup',
+    ],
+    benefits:
+      'One login runs every department of the hospital, and every invoice, payment, purchase, salary, and stock movement posts to the accounts automatically, so the owner sees real numbers every day without separate accounting software.',
+    accent: 'from-teal-500 to-cyan-800',
+    featured: true,
+  },
+  {
     name: 'TownOne Housing Scheme ERP',
     slug: 'townone-housing-erp',
     type: 'Real Estate & Housing Scheme ERP',
@@ -463,20 +493,6 @@ export const projects = [
     benefits:
       'Turns raw business data into clear daily KPIs so owners can spot problems and opportunities at a glance.',
     accent: 'from-accent-500 to-blue-700',
-  },
-  {
-    name: 'Clinic Management System',
-    slug: 'clinic-management-system',
-    type: 'Healthcare / Clinic Software',
-    categories: ['Management Systems', 'Web Apps'],
-    description:
-      'A clinic management solution for handling patients, appointments, records, and clinic operations.',
-    technologies: ['JavaScript', 'Web App', 'Database'],
-    visibility: 'Private',
-    features: ['Patient records', 'Appointment handling', 'Clinic workflow management', 'Reporting'],
-    benefits:
-      'Streamlines patient intake, appointments, and record-keeping so clinic staff spend less time on paperwork and more on patients.',
-    accent: 'from-rose-500 to-pink-700',
   },
   {
     name: 'Eye Optical',
@@ -828,7 +844,7 @@ export const projectImages = {
   'FR POS Inventory': 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
   'Estate Agency': 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80',
   'Mart POS': 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=800&q=80',
-  'Clinic Management System': 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80',
+  'MediCare HMS': 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80',
   'Ali Raza Portfolio Website': 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=800&q=80',
   'Hamza Memon Portfolio Website': 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
   'Mart': 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80',

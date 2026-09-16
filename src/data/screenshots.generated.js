@@ -209,6 +209,506 @@ export const generatedScreenshots = {
     ],
     "video": null
   },
+  "medicare-hms": {
+    "images": [
+      {
+        "src": "/projects/medicare-hms/01-login.webp",
+        "caption": "Login",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/02-dashboard.webp",
+        "caption": "Dashboard",
+        "w": 1600,
+        "h": 968
+      },
+      {
+        "src": "/projects/medicare-hms/03-patients.webp",
+        "caption": "Patients",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/04-consultation.webp",
+        "caption": "Consultation",
+        "w": 1600,
+        "h": 2880
+      },
+      {
+        "src": "/projects/medicare-hms/05-appointments.webp",
+        "caption": "Appointments",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/06-doctors.webp",
+        "caption": "Doctors",
+        "w": 1600,
+        "h": 950
+      },
+      {
+        "src": "/projects/medicare-hms/07-pharmacy.webp",
+        "caption": "Pharmacy",
+        "w": 1600,
+        "h": 902
+      },
+      {
+        "src": "/projects/medicare-hms/08-pharmacy-inventory.webp",
+        "caption": "Pharmacy inventory",
+        "w": 1600,
+        "h": 902
+      },
+      {
+        "src": "/projects/medicare-hms/09-pharmacy-invoices.webp",
+        "caption": "Pharmacy invoices",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/10-pharmacy-stock-report.webp",
+        "caption": "Pharmacy stock report",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/11-pharmacy-profit-report.webp",
+        "caption": "Pharmacy profit report",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/12-laboratory.webp",
+        "caption": "Laboratory",
+        "w": 1600,
+        "h": 978
+      },
+      {
+        "src": "/projects/medicare-hms/13-laboratory-lab-orders.webp",
+        "caption": "Laboratory lab orders",
+        "w": 1600,
+        "h": 978
+      },
+      {
+        "src": "/projects/medicare-hms/14-laboratory-test-catalog.webp",
+        "caption": "Laboratory test catalog",
+        "w": 1600,
+        "h": 1178
+      },
+      {
+        "src": "/projects/medicare-hms/15-laboratory-lab-products.webp",
+        "caption": "Laboratory lab products",
+        "w": 1600,
+        "h": 908
+      },
+      {
+        "src": "/projects/medicare-hms/16-laboratory-stock.webp",
+        "caption": "Laboratory stock",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/17-ultrasound.webp",
+        "caption": "Ultrasound",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/18-ultrasound-studies.webp",
+        "caption": "Ultrasound studies",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/19-ultrasound-study-templates.webp",
+        "caption": "Ultrasound study templates",
+        "w": 1600,
+        "h": 1192
+      },
+      {
+        "src": "/projects/medicare-hms/20-billing.webp",
+        "caption": "Billing",
+        "w": 1600,
+        "h": 992
+      },
+      {
+        "src": "/projects/medicare-hms/21-opd-reception.webp",
+        "caption": "Opd reception",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/22-wards-and-beds.webp",
+        "caption": "Wards and beds",
+        "w": 1600,
+        "h": 1458
+      },
+      {
+        "src": "/projects/medicare-hms/23-employees.webp",
+        "caption": "Employees",
+        "w": 1600,
+        "h": 956
+      },
+      {
+        "src": "/projects/medicare-hms/24-payroll.webp",
+        "caption": "Payroll",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/25-accounting.webp",
+        "caption": "Accounting",
+        "w": 1600,
+        "h": 1458
+      },
+      {
+        "src": "/projects/medicare-hms/26-accounting-cash-bank.webp",
+        "caption": "Accounting cash bank",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/27-accounting-budgets.webp",
+        "caption": "Accounting budgets",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/28-accounting-recurring.webp",
+        "caption": "Accounting recurring",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/29-general-ledger.webp",
+        "caption": "General ledger",
+        "w": 1600,
+        "h": 1018
+      },
+      {
+        "src": "/projects/medicare-hms/30-general-ledger-day-book.webp",
+        "caption": "General ledger day book",
+        "w": 1600,
+        "h": 1014
+      },
+      {
+        "src": "/projects/medicare-hms/31-general-ledger-vouchers.webp",
+        "caption": "General ledger vouchers",
+        "w": 1600,
+        "h": 1102
+      },
+      {
+        "src": "/projects/medicare-hms/32-general-ledger-chart-of-accounts.webp",
+        "caption": "General ledger chart of accounts",
+        "w": 1600,
+        "h": 1108
+      },
+      {
+        "src": "/projects/medicare-hms/33-general-ledger-opening-balances.webp",
+        "caption": "General ledger opening balances",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/34-general-ledger-bank-reconciliation.webp",
+        "caption": "General ledger bank reconciliation",
+        "w": 1600,
+        "h": 1108
+      },
+      {
+        "src": "/projects/medicare-hms/35-general-ledger-profit-loss.webp",
+        "caption": "General ledger profit loss",
+        "w": 1600,
+        "h": 1066
+      },
+      {
+        "src": "/projects/medicare-hms/36-general-ledger-balance-sheet.webp",
+        "caption": "General ledger balance sheet",
+        "w": 1600,
+        "h": 1672
+      },
+      {
+        "src": "/projects/medicare-hms/37-general-ledger-cash-flow.webp",
+        "caption": "General ledger cash flow",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/38-general-ledger-ar-aging.webp",
+        "caption": "General ledger ar aging",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/39-general-ledger-patient-statement.webp",
+        "caption": "General ledger patient statement",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/40-general-ledger-tax.webp",
+        "caption": "General ledger tax",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/41-suppliers-and-payables.webp",
+        "caption": "Suppliers and payables",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/42-suppliers-and-payables-bills.webp",
+        "caption": "Suppliers and payables bills",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/43-suppliers-and-payables-ap-aging.webp",
+        "caption": "Suppliers and payables ap aging",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/44-fixed-assets.webp",
+        "caption": "Fixed assets",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/45-reports.webp",
+        "caption": "Reports",
+        "w": 1600,
+        "h": 1252
+      },
+      {
+        "src": "/projects/medicare-hms/46-reports-revenue-collection.webp",
+        "caption": "Reports revenue collection",
+        "w": 1600,
+        "h": 1252
+      },
+      {
+        "src": "/projects/medicare-hms/47-reports-day-closing.webp",
+        "caption": "Reports day closing",
+        "w": 1600,
+        "h": 1592
+      },
+      {
+        "src": "/projects/medicare-hms/48-reports-opd.webp",
+        "caption": "Reports opd",
+        "w": 1600,
+        "h": 1252
+      },
+      {
+        "src": "/projects/medicare-hms/49-reports-patients.webp",
+        "caption": "Reports patients",
+        "w": 1600,
+        "h": 1510
+      },
+      {
+        "src": "/projects/medicare-hms/50-reports-appointments.webp",
+        "caption": "Reports appointments",
+        "w": 1600,
+        "h": 1080
+      },
+      {
+        "src": "/projects/medicare-hms/51-reports-pharmacy-stock.webp",
+        "caption": "Reports pharmacy stock",
+        "w": 1600,
+        "h": 1338
+      },
+      {
+        "src": "/projects/medicare-hms/52-reports-laboratory.webp",
+        "caption": "Reports laboratory",
+        "w": 1600,
+        "h": 1210
+      },
+      {
+        "src": "/projects/medicare-hms/53-reports-lab-consumables-stock.webp",
+        "caption": "Reports lab consumables stock",
+        "w": 1600,
+        "h": 1296
+      },
+      {
+        "src": "/projects/medicare-hms/54-reports-lab-consumables-usage.webp",
+        "caption": "Reports lab consumables usage",
+        "w": 1600,
+        "h": 1210
+      },
+      {
+        "src": "/projects/medicare-hms/55-reports-lab-consumables-by-test.webp",
+        "caption": "Reports lab consumables by test",
+        "w": 1600,
+        "h": 1210
+      },
+      {
+        "src": "/projects/medicare-hms/56-reports-billing-receivables.webp",
+        "caption": "Reports billing receivables",
+        "w": 1600,
+        "h": 1056
+      },
+      {
+        "src": "/projects/medicare-hms/57-reports-expenses.webp",
+        "caption": "Reports expenses",
+        "w": 1600,
+        "h": 1056
+      },
+      {
+        "src": "/projects/medicare-hms/58-reports-payroll-register.webp",
+        "caption": "Reports payroll register",
+        "w": 1600,
+        "h": 1056
+      },
+      {
+        "src": "/projects/medicare-hms/59-reports-staff-establishment.webp",
+        "caption": "Reports staff establishment",
+        "w": 1600,
+        "h": 1468
+      },
+      {
+        "src": "/projects/medicare-hms/60-reports-trial-balance.webp",
+        "caption": "Reports trial balance",
+        "w": 1600,
+        "h": 1698
+      },
+      {
+        "src": "/projects/medicare-hms/61-reports-profit-loss.webp",
+        "caption": "Reports profit loss",
+        "w": 1600,
+        "h": 1252
+      },
+      {
+        "src": "/projects/medicare-hms/62-reports-balance-sheet.webp",
+        "caption": "Reports balance sheet",
+        "w": 1600,
+        "h": 1814
+      },
+      {
+        "src": "/projects/medicare-hms/63-reports-cash-flow.webp",
+        "caption": "Reports cash flow",
+        "w": 1600,
+        "h": 1252
+      },
+      {
+        "src": "/projects/medicare-hms/64-reports-day-book.webp",
+        "caption": "Reports day book",
+        "w": 1600,
+        "h": 3286
+      },
+      {
+        "src": "/projects/medicare-hms/65-settings.webp",
+        "caption": "Settings",
+        "w": 1600,
+        "h": 936
+      },
+      {
+        "src": "/projects/medicare-hms/66-settings-users.webp",
+        "caption": "Settings users",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/67-settings-roles-permissions.webp",
+        "caption": "Settings roles permissions",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/68-settings-departments.webp",
+        "caption": "Settings departments",
+        "w": 1600,
+        "h": 930
+      },
+      {
+        "src": "/projects/medicare-hms/69-settings-billing-setup.webp",
+        "caption": "Settings billing setup",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/70-settings-about.webp",
+        "caption": "Settings about",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/71-patient-profile.webp",
+        "caption": "Patient profile",
+        "w": 1600,
+        "h": 2578
+      },
+      {
+        "src": "/projects/medicare-hms/72-invoice-detail.webp",
+        "caption": "Invoice detail",
+        "w": 1600,
+        "h": 974
+      },
+      {
+        "src": "/projects/medicare-hms/73-print-invoice.webp",
+        "caption": "Print invoice",
+        "w": 1600,
+        "h": 1102
+      },
+      {
+        "src": "/projects/medicare-hms/74-print-lab-report.webp",
+        "caption": "Print lab report",
+        "w": 1600,
+        "h": 1102
+      },
+      {
+        "src": "/projects/medicare-hms/75-print-ultrasound-report.webp",
+        "caption": "Print ultrasound report",
+        "w": 1600,
+        "h": 1102
+      },
+      {
+        "src": "/projects/medicare-hms/76-print-consultation-sheet.webp",
+        "caption": "Print consultation sheet",
+        "w": 1600,
+        "h": 1216
+      },
+      {
+        "src": "/projects/medicare-hms/77-print-prescription.webp",
+        "caption": "Print prescription",
+        "w": 1600,
+        "h": 1102
+      },
+      {
+        "src": "/projects/medicare-hms/78-print-discharge-summary.webp",
+        "caption": "Print discharge summary",
+        "w": 1600,
+        "h": 1102
+      },
+      {
+        "src": "/projects/medicare-hms/79-print-patient-card.webp",
+        "caption": "Print patient card",
+        "w": 1600,
+        "h": 908
+      },
+      {
+        "src": "/projects/medicare-hms/80-print-patient-statement.webp",
+        "caption": "Print patient statement",
+        "w": 1600,
+        "h": 1110
+      },
+      {
+        "src": "/projects/medicare-hms/81-print-opd-slip.webp",
+        "caption": "Print opd slip",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/medicare-hms/82-print-voucher.webp",
+        "caption": "Print voucher",
+        "w": 1600,
+        "h": 1102
+      }
+    ],
+    "video": {
+      "src": "/projects/medicare-hms/walkthrough.mp4",
+      "poster": "/projects/medicare-hms/walkthrough-poster.webp"
+    }
+  },
   "pos-inventory": {
     "images": [
       {
