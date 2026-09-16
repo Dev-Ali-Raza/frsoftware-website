@@ -29,7 +29,20 @@ export default function ScreenshotGallery({ images, initial = 9 }) {
         stagger={0.05}
       >
         {visible.map((img, i) => (
-          <motion.figure key={img.src} variants={staggerItem} className="group">
+          <motion.figure
+            key={img.src}
+            className="group"
+            /* tiles in the first batch use the scroll-triggered stagger; tiles
+               revealed by "Show all" animate themselves, since the parent's
+               whileInView has already fired (once) and will not re-run */
+            {...(i < limit
+              ? { variants: staggerItem }
+              : {
+                  initial: { opacity: 0, y: 24 },
+                  animate: { opacity: 1, y: 0 },
+                  transition: { duration: 0.45, delay: Math.min((i - limit) * 0.03, 0.6), ease: [0.22, 1, 0.36, 1] },
+                })}
+          >
             <button
               type="button"
               onClick={() => setOpen(i)}
