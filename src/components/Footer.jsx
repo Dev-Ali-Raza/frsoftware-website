@@ -1,7 +1,9 @@
 import { Facebook, Github, Instagram, Linkedin, Mail, MapPin, Phone } from 'lucide-react'
 import Logo from './Logo'
+import SmartLink from './SmartLink'
 import { WhatsAppIcon } from './FloatingActions'
-import { company, navLinks, services, products } from '../data/site'
+import { company, navLinks, services, products, projects } from '../data/site'
+import { projectPath } from '../lib/projects'
 import { openWhatsApp, waMeUrl } from '../lib/whatsapp'
 
 const socials = [
@@ -53,7 +55,15 @@ export default function Footer() {
             <ul className="mt-5 space-y-2.5">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a href={link.href} className={linkClass}>{link.label}</a>
+                  <SmartLink href={link.href} className={linkClass}>{link.label}</SmartLink>
+                </li>
+              ))}
+            </ul>
+            <h3 className={`${headingClass} mt-7`}>Featured Projects</h3>
+            <ul className="mt-4 space-y-2.5">
+              {projects.filter((p) => p.featured).map((p) => (
+                <li key={p.slug}>
+                  <SmartLink href={projectPath(p)} className={linkClass}>{p.name}</SmartLink>
                 </li>
               ))}
             </ul>
@@ -65,7 +75,7 @@ export default function Footer() {
             <ul className="mt-5 space-y-2.5">
               {services.slice(0, 6).map((s) => (
                 <li key={s.title}>
-                  <a href="#services" className={linkClass}>{s.title}</a>
+                  <SmartLink href="#services" className={linkClass}>{s.title}</SmartLink>
                 </li>
               ))}
             </ul>
@@ -73,7 +83,7 @@ export default function Footer() {
             <ul className="mt-4 space-y-2.5">
               {products.map((p) => (
                 <li key={p.name}>
-                  <a href="#products" className={linkClass}>{p.name}</a>
+                  <SmartLink href={p.slug ? `/projects/${p.slug}` : '#products'} className={linkClass}>{p.name}</SmartLink>
                 </li>
               ))}
             </ul>
@@ -100,9 +110,9 @@ export default function Footer() {
                 {company.location}
               </li>
             </ul>
-            <a href="#contact" className="btn-primary mt-6 px-5 py-2.5 text-xs">
+            <SmartLink href="#contact" className="btn-primary mt-6 px-5 py-2.5 text-xs">
               Get Free Demo
-            </a>
+            </SmartLink>
           </div>
         </div>
 

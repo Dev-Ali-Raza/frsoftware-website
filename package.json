@@ -6,14 +6,18 @@
   "description": "FR Software Solutions — official company website",
   "scripts": {
     "dev": "vite",
+    "prebuild": "node scripts/screenshots.mjs && node scripts/sitemap.mjs",
     "build": "vite build",
+    "screenshots": "node scripts/screenshots.mjs",
+    "sitemap": "node scripts/sitemap.mjs",
     "preview": "vite preview"
   },
   "dependencies": {
     "framer-motion": "^11.15.0",
     "lucide-react": "^0.469.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.6"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.0",

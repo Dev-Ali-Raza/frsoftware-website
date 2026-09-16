@@ -6,6 +6,7 @@ import {
   Rocket, ScanBarcode, Settings2, ShieldCheck, ShoppingBag, ShoppingCart,
   Stethoscope, Store, TestTubes, UtensilsCrossed, Wallet, Warehouse,
   Workflow, Wrench,
+  Bell, BookOpen, CalendarDays, ClipboardList, CreditCard, FileText, Flame, Library, MapPin, Package, Palette, QrCode, Receipt, Truck, Users,
 } from 'lucide-react'
 
 /* Explicit map (instead of importing the full lucide icon set) keeps the
@@ -18,6 +19,7 @@ const ICONS = {
   Rocket, ScanBarcode, Settings2, ShieldCheck, ShoppingBag, ShoppingCart,
   Stethoscope, Store, TestTubes, UtensilsCrossed, Wallet, Warehouse,
   Workflow, Wrench,
+  Bell, BookOpen, CalendarDays, ClipboardList, CreditCard, FileText, Flame, Library, MapPin, Package, Palette, QrCode, Receipt, Truck, Users,
 }
 
 export default function Icon({ name, className = 'h-5 w-5' }) {

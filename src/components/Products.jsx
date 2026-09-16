@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight, Check, Eye, MonitorPlay } from 'lucide-react'
 import Icon from './Icon'
@@ -88,12 +89,18 @@ export default function Products() {
                 <a href="#contact" className="btn-primary flex-1 px-4 py-2.5 text-xs sm:text-sm">
                   Request Demo <ArrowRight className="h-3.5 w-3.5" />
                 </a>
-                <button
-                  onClick={() => setSelected(product)}
-                  className="btn-secondary flex-1 px-4 py-2.5 text-xs sm:text-sm"
-                >
-                  <Eye className="h-3.5 w-3.5" /> View Details
-                </button>
+                {product.slug ? (
+                  <Link to={`/projects/${product.slug}`} className="btn-secondary flex-1 px-4 py-2.5 text-xs sm:text-sm">
+                    <Eye className="h-3.5 w-3.5" /> View Details
+                  </Link>
+                ) : (
+                  <button
+                    onClick={() => setSelected(product)}
+                    className="btn-secondary flex-1 px-4 py-2.5 text-xs sm:text-sm"
+                  >
+                    <Eye className="h-3.5 w-3.5" /> View Details
+                  </button>
+                )}
               </div>
             </motion.article>
           ))}

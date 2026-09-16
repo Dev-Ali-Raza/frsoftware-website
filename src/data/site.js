@@ -1,7 +1,9 @@
 /* ====================================================================
    FR SOFTWARE SOLUTIONS — SITE CONTENT
    --------------------------------------------------------------------
-   👉 This is the ONLY file you need to edit to update website content.
+   👉 Edit this file to update website content.
+   👉 Project detail pages (/projects/<slug>) also read
+      src/data/projectDetails.js and screenshots in public/projects/<slug>/.
    ==================================================================== */
 
 export const company = {
@@ -177,25 +179,28 @@ export const services = [
 export const products = [
   {
     icon: 'UtensilsCrossed',
-    badge: 'Desktop',
-    name: 'Restaurant Management System',
-    description: 'Windows Forms based restaurant billing and inventory software.',
+    badge: 'Web · Cloud',
+    name: 'DineFlow Restaurant System',
+    slug: 'dineflow',
+    description: 'Cloud-based restaurant POS with kitchen display, QR ordering, and built-in accounting.',
     features: [
-      'C# WinForms GUI',
-      'Table and order tracking',
-      'Smart billing',
-      'Billing reports',
-      'Inventory deduction',
-      'Dine-in and takeaway support',
-      'User-friendly interface',
+      'Touch POS: dine-in, takeaway, delivery',
+      'Real-time kitchen display',
+      'QR scan-to-order menu',
+      'Online storefront',
+      'Recipes and inventory costing',
+      'Double-entry accounting',
+      'Thermal receipt and KOT printing',
+      'Multi-branch and roles',
     ],
-    technologies: ['C#', 'WinForms', 'SQL Server'],
+    technologies: ['Angular', '.NET 9', 'SQL Server', 'SignalR'],
     accent: 'from-orange-500/20 to-rose-500/10',
   },
   {
     icon: 'Boxes',
     badge: 'Desktop',
     name: 'Inventory Management System',
+    slug: 'inventory-management-system',
     description: 'Inventory tracking solution for retail shops, wholesalers, and stock-based businesses.',
     features: [
       'Stock in/out tracking',
@@ -213,6 +218,7 @@ export const products = [
     icon: 'ScanBarcode',
     badge: 'Flagship · Full-Stack',
     name: 'Mart POS',
+    slug: 'mart-pos',
     description: 'A complete full-stack retail management application built with Angular, .NET, and SQL.',
     features: [
       'Fast POS checkout',
@@ -251,58 +257,14 @@ export const projectCategories = [
   'Portfolio Websites',
   'Accounting',
   'Business Automation',
+  'Ecommerce',
+  'Mobile Apps',
 ]
 
 export const projects = [
   {
-    name: 'DMS',
-    type: 'Business Management System',
-    categories: ['Management Systems', 'Web Apps', 'Business Automation'],
-    description:
-      'A custom data management system built for managing business records, workflows, and operational data.',
-    technologies: ['CSS', 'Web Development', 'Database'],
-    visibility: 'Private',
-    features: ['Business records management', 'Workflow organization', 'Data management', 'Reporting support'],
-    benefits:
-      'Centralizes scattered business records into one organized system, reducing manual paperwork and making operational data searchable and reportable.',
-    accent: 'from-sky-500 to-blue-700',
-  },
-  {
-    name: 'Inventory Soda POS Complete System',
-    type: 'Inventory + POS System',
-    categories: ['POS Systems', 'Inventory', 'Desktop Apps', 'Accounting'],
-    description:
-      'A complete stock, sale, purchase, cash book, ledger, and reporting system for inventory-based businesses.',
-    technologies: ['C#', 'WinForms', 'SQL Server'],
-    visibility: 'Private',
-    features: [
-      'Product registration',
-      'Stock management',
-      'Sale and purchase reports',
-      'Cash book',
-      'Ledger',
-      'Product-wise stock reports',
-      'Profit ratio reports',
-    ],
-    benefits:
-      'Gives stock-based businesses full visibility over inventory, cash flow, and profit ratios — replacing registers and spreadsheets with accurate, instant reports.',
-    accent: 'from-emerald-500 to-teal-700',
-  },
-  {
-    name: 'Estate Agency',
-    type: 'Real Estate Management System',
-    categories: ['Management Systems', 'Business Automation'],
-    description:
-      'A system for managing property listings, clients, agents, deals, and agency workflows.',
-    technologies: ['SQL', 'Database', 'Business Management'],
-    visibility: 'Private',
-    features: ['Property records', 'Client management', 'Agency workflow management', 'Deal tracking'],
-    benefits:
-      'Keeps property listings, client follow-ups, and deal pipelines organized so agencies close deals faster with fewer missed opportunities.',
-    accent: 'from-amber-500 to-orange-700',
-  },
-  {
     name: 'Mart POS',
+    slug: 'mart-pos',
     type: 'Retail POS & Business Management System',
     categories: ['POS Systems', 'Web Apps', 'Accounting', 'Management Systems'],
     description: 'A full-stack retail management application built with Angular, .NET, and SQL.',
@@ -325,7 +287,186 @@ export const projects = [
     featured: true,
   },
   {
+    name: 'DineFlow',
+    slug: 'dineflow',
+    type: 'Restaurant Management Platform',
+    categories: ['POS Systems', 'Web Apps', 'Accounting', 'Management Systems'],
+    description:
+      'A cloud-based restaurant operating system: touch POS, kitchen display, QR self-ordering, online storefront, inventory, and a full double-entry accounting engine.',
+    technologies: ['Angular', '.NET 9', 'SQL Server', 'SignalR', 'PWA'],
+    visibility: 'Private',
+    features: [
+      'Touch POS for dine-in, takeaway, and delivery',
+      'Real-time kitchen display system',
+      'QR scan-to-order and online storefront',
+      'Order acceptance queue and orders board',
+      'Recipes, ingredient costing, and inventory',
+      'Double-entry accounting and financial statements',
+      'Multi-branch, multi-tenant, role-based access',
+      'PKR, Urdu / RTL, thermal receipt and KOT printing',
+    ],
+    benefits:
+      'POS and accounting in one system — every sale, void, refund, and stock movement is already a balanced ledger entry, so the books always match the till.',
+    accent: 'from-amber-500 to-orange-700',
+    featured: true,
+  },
+  {
+    name: 'School Management System',
+    slug: 'school-management-system',
+    type: 'Multi-Campus School ERP',
+    categories: ['Management Systems', 'Web Apps', 'Accounting', 'Business Automation'],
+    description:
+      'A full-scale school ERP covering admissions, fees, double-entry accounting, exams, attendance, HR and payroll, library, hostel, transport, and parent / student / teacher portals.',
+    technologies: ['Angular', '.NET 9', 'SQL Server', 'PrimeNG', 'PWA'],
+    visibility: 'Private',
+    features: [
+      'Admissions, student 360 profile, ID cards',
+      'Fee structure, challans, collection, defaulters, online payment',
+      'Full double-entry general ledger and financial statements',
+      'Exams, marks entry, result cards, timetable, homework',
+      'Student and staff attendance with biometric import',
+      'HR, payroll, loans, and leave management',
+      'Library, hostel, transport, inventory, procurement, fixed assets',
+      'Parent, student, and teacher portals; SMS / email broadcasts',
+      '50+ reports with PDF, Excel, and CSV export',
+      'Multi-campus, multi-tenant, 786 granular permissions',
+    ],
+    benefits:
+      'Runs the entire school on one database — from an admission inquiry to the general-ledger entry — so administration works from accurate, live data instead of paper registers.',
+    accent: 'from-indigo-500 to-violet-800',
+    featured: true,
+  },
+  {
+    name: 'Saadgi',
+    slug: 'saadgi',
+    type: 'Ecommerce Platform',
+    categories: ['Ecommerce', 'Web Apps', 'Inventory'],
+    description:
+      'A full-stack, admin-driven ecommerce platform for a premium modest-fashion brand — SSR storefront, cart and checkout, COD and online payments, courier booking, and a built-in store assistant.',
+    link: 'https://www.saadgiwear.com/',
+    technologies: ['Angular SSR', '.NET 9', 'SQL Server', 'Dapper', 'Tailwind CSS'],
+    visibility: 'Public',
+    features: [
+      'Mobile-first SSR storefront with SEO and social previews',
+      'Faceted catalogue, search, colour-aware product galleries',
+      'Cart drawer, coupons, bundles, wishlist, reviews',
+      'COD, Safepay, JazzCash, Easypaisa payments',
+      'Order state machine with courier booking and shipping labels',
+      'Built-in store assistant that answers from the live catalogue',
+      'Admin control centre: products, orders, inventory, CMS, feature flags',
+      '3D / AR product try-on',
+    ],
+    benefits:
+      'The business runs the whole store from the admin panel — products, pricing, payments, couriers, content — with no developer needed for day-to-day changes.',
+    accent: 'from-stone-700 to-amber-700',
+    featured: true,
+  },
+  {
+    name: 'FR POS Inventory',
+    slug: 'pos-inventory',
+    type: 'POS, Inventory & Accounts System',
+    categories: ['POS Systems', 'Inventory', 'Web Apps', 'Accounting'],
+    description:
+      'A complete point of sale, stock, purchase, cash book, bank, and ledger system for wholesalers and distributors — with dark mode and a mobile-friendly layout.',
+    technologies: ['Web Application', 'SQL Server', 'Responsive UI', 'Dark / Light Mode'],
+    visibility: 'Private',
+    features: [
+      'Touch-friendly point of sale with product tiles',
+      'Customer, supplier, and product management',
+      'Purchase book and stock tracking',
+      'Cash book, bank, and party ledgers',
+      'Daily sale, profit, and stock reports',
+      'Day summary and dashboard KPIs',
+      'Users and roles',
+      'Dark mode and mobile layout',
+    ],
+    benefits:
+      'Gives stock-based businesses full visibility over inventory, cash, receivables, and profit — replacing registers and spreadsheets with accurate, instant reports.',
+    accent: 'from-blue-700 to-indigo-900',
+    featured: true,
+  },
+  {
+    name: 'AI Health Assistant',
+    slug: 'ai-health-assistant',
+    type: 'Android App · AI Symptom Checker',
+    categories: ['Mobile Apps', 'Web Apps'],
+    description:
+      'An Android health companion with an AI symptom checker that ranks 73 conditions, care plans, medicine reminders, a live doctor and hospital locator, and seasonal health alerts.',
+    technologies: ['Android', 'FastAPI', 'Python', 'Machine Learning', 'MongoDB'],
+    visibility: 'Private',
+    features: [
+      'Symptom checker over 248 symptoms with plain-language search',
+      'Top-3 condition ranking with confidence and evidence',
+      'Care plan: precautions, diet, medication guidance, specialist',
+      'Doctor and hospital locator with live map and directions',
+      'Medicine reminders with course length and follow-up alarms',
+      'Seasonal disease and air-quality alerts',
+      'Secure accounts, profile, and prediction history',
+      'FastAPI backend on serverless hosting with MongoDB Atlas',
+    ],
+    benefits:
+      'Gives patients a safe first step — a ranked, explained suggestion, the right specialist nearby, and reminders that keep a course of medicine on track.',
+    accent: 'from-emerald-500 to-teal-800',
+  },
+  {
+    name: 'TownOne Housing Scheme ERP',
+    slug: 'townone-housing-erp',
+    type: 'Real Estate & Housing Scheme ERP',
+    categories: ['Management Systems', 'Web Apps', 'Accounting', 'Business Automation'],
+    description:
+      'A complete ERP for housing schemes and property developers: plots, blocks, bookings, installment recovery, customer ledgers, printable allotment documents, and full double-entry accounting.',
+    link: 'https://townone.frsoftwaresolutions.online/login',
+    technologies: ['Web Application', 'SQL Server', 'Double-Entry Accounting', 'PDF / Excel Reports'],
+    visibility: 'Private',
+    features: [
+      'Projects, blocks, and units with bulk add and block-wise stock summary',
+      'Customer profiles with CNIC, nominees, family members, and documents',
+      'Booking contracts with monthly, half-yearly, demarcation, and possession streams',
+      'Installment recovery: cash, bank, split receipts, cheques, overdue and defaulters',
+      'Automatic late-payment surcharge with waive option',
+      'Cancellation, refund, restore, and plot transfer workflows',
+      'Villa construction contracts with separate ledgers',
+      'Full double-entry accounting with trial balance, balance sheet, and P&L',
+      'Editable printables: application form, allotment letter, demand notice, vouchers',
+      '36+ reports with PDF and Excel export',
+      'Roles, screen-level permissions, and activity log',
+    ],
+    benefits:
+      'Replaces files, registers, and Excel schedules with one system that knows every plot\'s status, every customer\'s balance, and every rupee collected, and prints the paperwork automatically.',
+    accent: 'from-violet-500 to-brand-700',
+    featured: true,
+  },
+  {
+    name: 'Inventory Management System',
+    slug: 'inventory-management-system',
+    type: 'Stock Management Software',
+    categories: ['Inventory', 'Desktop Apps'],
+    description:
+      'A complete inventory tracking solution for retail shops, wholesalers, and stock-based businesses.',
+    technologies: ['C#', 'WinForms', 'SQL Server'],
+    visibility: 'Private',
+    features: ['Stock in/out', 'Stock movement logging', 'Monthly reports', 'Low stock alerts', 'User role support'],
+    benefits:
+      'Prevents stock-outs and shrinkage with accurate movement logs, alerts, and monthly reports — no more guessing what is on the shelf.',
+    accent: 'from-emerald-500 to-green-700',
+  },
+  {
+    name: 'Custom Business Dashboard',
+    slug: 'custom-business-dashboard',
+    type: 'Dashboard & Analytics',
+    categories: ['Web Apps', 'Business Automation', 'Accounting'],
+    description:
+      'A dashboard system for tracking business KPIs, reports, sales, expenses, and performance metrics.',
+    technologies: ['Angular', '.NET', 'SQL Server', 'Charts'],
+    visibility: 'Private',
+    features: ['KPI tracking', 'Sales analytics', 'Expense reports', 'Business performance dashboard'],
+    benefits:
+      'Turns raw business data into clear daily KPIs so owners can spot problems and opportunities at a glance.',
+    accent: 'from-accent-500 to-blue-700',
+  },
+  {
     name: 'Clinic Management System',
+    slug: 'clinic-management-system',
     type: 'Healthcare / Clinic Software',
     categories: ['Management Systems', 'Web Apps'],
     description:
@@ -338,7 +479,64 @@ export const projects = [
     accent: 'from-rose-500 to-pink-700',
   },
   {
+    name: 'Eye Optical',
+    slug: 'eye-optical',
+    type: 'Optical Shop Management System',
+    categories: ['Management Systems', 'Desktop Apps'],
+    description:
+      'A management system for optical shops to handle customers, prescriptions, invoices, and records.',
+    technologies: ['C#', 'WinForms', 'SQL Server'],
+    visibility: 'Private',
+    features: ['Customer management', 'Eyesight prescription records', 'Invoice management', 'Optical shop workflow'],
+    benefits:
+      'Keeps prescriptions and customer history at the shop\'s fingertips, speeding up repeat orders and improving customer service.',
+    accent: 'from-teal-500 to-cyan-700',
+  },
+  {
+    name: 'Estate Agency',
+    slug: 'estate-agency',
+    type: 'Real Estate Management System',
+    categories: ['Management Systems', 'Business Automation'],
+    description:
+      'A system for managing property listings, clients, agents, deals, and agency workflows.',
+    technologies: ['SQL', 'Database', 'Business Management'],
+    visibility: 'Private',
+    features: ['Property records', 'Client management', 'Agency workflow management', 'Deal tracking'],
+    benefits:
+      'Keeps property listings, client follow-ups, and deal pipelines organized so agencies close deals faster with fewer missed opportunities.',
+    accent: 'from-amber-500 to-orange-700',
+  },
+  {
+    name: 'DMS',
+    slug: 'dms',
+    type: 'Business Management System',
+    categories: ['Management Systems', 'Web Apps', 'Business Automation'],
+    description:
+      'A custom data management system built for managing business records, workflows, and operational data.',
+    technologies: ['CSS', 'Web Development', 'Database'],
+    visibility: 'Private',
+    features: ['Business records management', 'Workflow organization', 'Data management', 'Reporting support'],
+    benefits:
+      'Centralizes scattered business records into one organized system, reducing manual paperwork and making operational data searchable and reportable.',
+    accent: 'from-sky-500 to-blue-700',
+  },
+  {
+    name: 'Mart',
+    slug: 'mart',
+    type: 'Retail Management System',
+    categories: ['Management Systems', 'Web Apps', 'Inventory'],
+    description:
+      'A retail software solution for managing products, customers, sales, inventory, and business records.',
+    technologies: ['TypeScript', 'Web App', 'Database'],
+    visibility: 'Private',
+    features: ['Product management', 'Sales management', 'Customer records', 'Inventory tracking'],
+    benefits:
+      'Brings products, sales, and customer records into one system so retail owners always know what is selling and what is in stock.',
+    accent: 'from-cyan-500 to-sky-700',
+  },
+  {
     name: 'Ali Raza Portfolio Website',
+    slug: 'ali-raza-portfolio',
     type: 'Personal Portfolio Website',
     categories: ['Portfolio Websites', 'Web Apps'],
     description:
@@ -353,6 +551,7 @@ export const projects = [
   },
   {
     name: 'Hamza Memon Portfolio Website',
+    slug: 'hamza-memon-portfolio',
     type: 'Personal Portfolio Website',
     categories: ['Portfolio Websites', 'Web Apps'],
     description:
@@ -364,109 +563,6 @@ export const projects = [
     benefits:
       'A polished developer portfolio that builds credibility and makes project work easy to explore.',
     accent: 'from-fuchsia-500 to-purple-700',
-  },
-  {
-    name: 'Mart',
-    type: 'Retail Management System',
-    categories: ['Management Systems', 'Web Apps', 'Inventory'],
-    description:
-      'A retail software solution for managing products, customers, sales, inventory, and business records.',
-    technologies: ['TypeScript', 'Web App', 'Database'],
-    visibility: 'Private',
-    features: ['Product management', 'Sales management', 'Customer records', 'Inventory tracking'],
-    benefits:
-      'Brings products, sales, and customer records into one system so retail owners always know what is selling and what is in stock.',
-    accent: 'from-cyan-500 to-sky-700',
-  },
-  {
-    name: 'Inventory Management System',
-    type: 'Stock Management Software',
-    categories: ['Inventory', 'Desktop Apps'],
-    description:
-      'A complete inventory tracking solution for retail shops, wholesalers, and stock-based businesses.',
-    technologies: ['C#', 'WinForms', 'SQL Server'],
-    visibility: 'Private',
-    features: ['Stock in/out', 'Stock movement logging', 'Monthly reports', 'Low stock alerts', 'User role support'],
-    benefits:
-      'Prevents stock-outs and shrinkage with accurate movement logs, alerts, and monthly reports — no more guessing what is on the shelf.',
-    accent: 'from-emerald-500 to-green-700',
-  },
-  {
-    name: 'Ecommerce',
-    type: 'Online Store / Ecommerce Website',
-    categories: ['Web Apps'],
-    description:
-      'A web-based ecommerce project for product listing, cart, checkout, and customer ordering.',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'Web Development'],
-    visibility: 'Public',
-    features: ['Product listing', 'Shopping cart', 'Checkout flow', 'Customer ordering'],
-    benefits:
-      'Lets businesses sell online with a straightforward product catalog, cart, and checkout experience.',
-    accent: 'from-orange-500 to-rose-700',
-  },
-  {
-    name: 'Eye Optical',
-    type: 'Optical Shop Management System',
-    categories: ['Management Systems', 'Desktop Apps'],
-    description:
-      'A management system for optical shops to handle customers, prescriptions, invoices, and records.',
-    technologies: ['C#', 'WinForms', 'SQL Server'],
-    visibility: 'Private',
-    features: ['Customer management', 'Eyesight prescription records', 'Invoice management', 'Optical shop workflow'],
-    benefits:
-      'Keeps prescriptions and customer history at the shop\'s fingertips, speeding up repeat orders and improving customer service.',
-    accent: 'from-teal-500 to-cyan-700',
-  },
-  {
-    name: 'School Management System',
-    type: 'Education Management Software',
-    categories: ['Management Systems', 'Desktop Apps'],
-    description:
-      'A school management system for students, staff, classes, fees, and academic records.',
-    technologies: ['C#', 'SQL Server', 'Desktop Application'],
-    visibility: 'Private',
-    features: ['Student records', 'Staff records', 'Fee management', 'Academic records'],
-    benefits:
-      'Digitizes student, staff, and fee records so school administration runs on accurate data instead of paper registers.',
-    accent: 'from-blue-500 to-indigo-700',
-  },
-  {
-    name: 'TownOne Booking System',
-    type: 'Booking / Reservation System',
-    categories: ['Management Systems', 'Desktop Apps', 'Business Automation'],
-    description:
-      'A booking management solution for reservations, scheduling, and customer bookings.',
-    technologies: ['C#', 'SQL Server', 'Desktop Application'],
-    visibility: 'Private',
-    features: ['Booking management', 'Reservation tracking', 'Customer records', 'Scheduling'],
-    benefits:
-      'Eliminates double-bookings and lost reservations with a single scheduling system and clear customer records.',
-    accent: 'from-violet-500 to-brand-700',
-  },
-  {
-    name: 'Restaurant Management System',
-    type: 'Restaurant POS & Billing Software',
-    categories: ['POS Systems', 'Desktop Apps', 'Management Systems'],
-    description: 'Windows Forms based restaurant billing and inventory software.',
-    technologies: ['C#', 'WinForms', 'SQL Server'],
-    visibility: 'Private',
-    features: ['C# WinForms GUI', 'Table and order tracking', 'Smart billing', 'Billing reports', 'Inventory deduction'],
-    benefits:
-      'Speeds up billing and order handling while automatically deducting inventory — fewer mistakes during rush hours.',
-    accent: 'from-rose-500 to-orange-700',
-  },
-  {
-    name: 'Custom Business Dashboard',
-    type: 'Dashboard & Analytics',
-    categories: ['Web Apps', 'Business Automation', 'Accounting'],
-    description:
-      'A dashboard system for tracking business KPIs, reports, sales, expenses, and performance metrics.',
-    technologies: ['Angular', '.NET', 'SQL Server', 'Charts'],
-    visibility: 'Private',
-    features: ['KPI tracking', 'Sales analytics', 'Expense reports', 'Business performance dashboard'],
-    benefits:
-      'Turns raw business data into clear daily KPIs so owners can spot problems and opportunities at a glance.',
-    accent: 'from-accent-500 to-blue-700',
   },
 ]
 
@@ -729,7 +825,7 @@ export const serviceImages = {
 /* Thumbnail photo per portfolio project (keyed by project name) */
 export const projectImages = {
   'DMS': 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
-  'Inventory Soda POS Complete System': 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
+  'FR POS Inventory': 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
   'Estate Agency': 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80',
   'Mart POS': 'https://images.unsplash.com/photo-1556740738-b6a63e27c4df?auto=format&fit=crop&w=800&q=80',
   'Clinic Management System': 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80',
@@ -737,11 +833,12 @@ export const projectImages = {
   'Hamza Memon Portfolio Website': 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
   'Mart': 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=800&q=80',
   'Inventory Management System': 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80',
-  'Ecommerce': 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80',
+  'Saadgi': 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=800&q=80',
   'Eye Optical': 'https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=800&q=80',
   'School Management System': 'https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=800&q=80',
-  'TownOne Booking System': 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=80',
-  'Restaurant Management System': 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80',
+  'TownOne Housing Scheme ERP': 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=80',
+  'DineFlow': 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80',
+  'AI Health Assistant': 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
   'Custom Business Dashboard': 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
 }
 

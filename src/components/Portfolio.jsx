@@ -1,9 +1,10 @@
 import { useMemo, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowRight, ArrowUpRight, Eye, Lock, Globe2, Check, TrendingUp } from 'lucide-react'
-import Modal from './Modal'
+import { ArrowRight, Lock, Globe2, PlayCircle } from 'lucide-react'
 import SectionHeading from './SectionHeading'
-import { projects, projectCategories, projectImages } from '../data/site'
+import { projects, projectCategories } from '../data/site'
+import { projectPath, projectThumb, projectMedia } from '../lib/projects'
 
 function VisibilityBadge({ visibility }) {
   const isPrivate = visibility === 'Private'
@@ -23,7 +24,6 @@ function VisibilityBadge({ visibility }) {
 
 export default function Portfolio() {
   const [filter, setFilter] = useState('All')
-  const [selected, setSelected] = useState(null)
 
   const visible = useMemo(
     () => (filter === 'All' ? projects : projects.filter((p) => p.categories.includes(filter))),
@@ -77,23 +77,42 @@ export default function Portfolio() {
                 className="card-hover group relative flex flex-col overflow-hidden"
               >
                 {/* photo banner (accent gradient shows if the photo fails) */}
-                <div className={`relative h-48 overflow-hidden bg-gradient-to-br ${project.accent}`}>
+                <Link to={projectPath(project)} className={`relative block h-48 overflow-hidden bg-gradient-to-br ${project.accent}`} aria-label={`Open ${project.name}`}>
                   <img
-                    src={projectImages[project.name]}
+                    src={projectThumb(project).src}
                     alt={`${project.name} — ${project.type}`}
                     loading="lazy"
                     onError={(e) => { e.currentTarget.style.display = 'none' }}
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-navy-900/10 to-transparent" />
                   <span className="absolute bottom-3 left-5 font-display text-xs font-bold uppercase tracking-widest text-white/90">
                     {project.type}
                   </span>
-                </div>
+                  {(() => {
+                    const { images, video } = projectMedia(project.slug)
+                    return (
+                      <span className="absolute right-3 top-3 flex gap-1.5">
+                        {video && (
+                          <span className="inline-flex items-center gap-1 rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-navy-800">
+                            <PlayCircle className="h-3 w-3" /> Video
+                          </span>
+                        )}
+                        {images.length > 0 && (
+                          <span className="rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-navy-800">
+                            {images.length} shots
+                          </span>
+                        )}
+                      </span>
+                    )
+                  })()}
+                </Link>
 
                 <div className="flex flex-1 flex-col p-6">
                   <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-lg font-bold leading-snug text-navy-800">{project.name}</h3>
+                    <h3 className="text-lg font-bold leading-snug text-navy-800">
+                      <Link to={projectPath(project)} className="transition-colors hover:text-brand-600">{project.name}</Link>
+                    </h3>
                     <VisibilityBadge visibility={project.visibility} />
                   </div>
                   <p className="mt-2 text-sm leading-relaxed text-slate-600">{project.description}</p>
@@ -105,13 +124,10 @@ export default function Portfolio() {
                   </div>
 
                   <div className="mt-auto flex gap-2.5 pt-5">
-                    <button
-                      onClick={() => setSelected(project)}
-                      className="btn-secondary flex-1 px-3 py-2 text-xs"
-                    >
-                      <Eye className="h-3.5 w-3.5" /> View Details
-                    </button>
-                    <a href="#contact" className="btn-primary flex-1 px-3 py-2 text-xs">
+                    <Link to={projectPath(project)} className="btn-primary flex-1 px-3 py-2 text-xs">
+                      View Project <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                    <a href="#contact" className="btn-secondary flex-1 px-3 py-2 text-xs">
                       Request Similar
                     </a>
                   </div>
@@ -122,59 +138,6 @@ export default function Portfolio() {
         </motion.div>
       </div>
 
-      {/* ---------------- project detail modal ---------------- */}
-      <Modal open={!!selected} onClose={() => setSelected(null)}>
-        {selected && (
-          <div>
-            <div className="flex flex-wrap items-center gap-3">
-              <h3 className="text-2xl font-bold text-navy-800">{selected.name}</h3>
-              <VisibilityBadge visibility={selected.visibility} />
-            </div>
-            <p className="mt-1 text-sm font-semibold text-brand-600">{selected.type}</p>
-
-            <h4 className="mt-6 text-sm font-bold uppercase tracking-wider text-brand-600">Overview</h4>
-            <p className="mt-2 text-sm leading-relaxed text-slate-600">{selected.description}</p>
-
-            <h4 className="mt-6 text-sm font-bold uppercase tracking-wider text-brand-600">Main Features</h4>
-            <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-              {selected.features.map((f) => (
-                <li key={f} className="flex items-start gap-2 text-sm text-slate-600">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-500" />
-                  {f}
-                </li>
-              ))}
-            </ul>
-
-            <h4 className="mt-6 text-sm font-bold uppercase tracking-wider text-brand-600">Technologies Used</h4>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {selected.technologies.map((t) => (
-                <span key={t} className="tech-badge">{t}</span>
-              ))}
-            </div>
-
-            <h4 className="mt-6 text-sm font-bold uppercase tracking-wider text-brand-600">Business Benefits</h4>
-            <p className="mt-2 flex items-start gap-2 text-sm leading-relaxed text-slate-600">
-              <TrendingUp className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
-              {selected.benefits}
-            </p>
-
-            {selected.link && (
-              <a
-                href={selected.link}
-                target="_blank"
-                rel="noreferrer"
-                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 hover:text-brand-700"
-              >
-                Visit live site <ArrowUpRight className="h-4 w-4" />
-              </a>
-            )}
-
-            <a href="#contact" onClick={() => setSelected(null)} className="btn-primary mt-8 w-full">
-              Request Similar Project <ArrowRight className="h-4 w-4" />
-            </a>
-          </div>
-        )}
-      </Modal>
     </section>
   )
 }

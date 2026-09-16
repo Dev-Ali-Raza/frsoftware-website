@@ -1,13 +1,17 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useLocation } from 'react-router-dom'
 import { Menu, X, ArrowRight, Phone } from 'lucide-react'
 import Logo from './Logo'
+import SmartLink from './SmartLink'
 import { navLinks, company } from '../data/site'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
   const [active, setActive] = useState('#home')
+  const { pathname } = useLocation()
+  const onProjectPage = pathname.startsWith('/projects/')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -18,6 +22,10 @@ export default function Navbar() {
 
   // Active-link highlight: observe each section as it enters the viewport
   useEffect(() => {
+    if (pathname !== '/') {
+      setActive(onProjectPage ? '#portfolio' : '')
+      return undefined
+    }
     const sections = navLinks
       .map((l) => document.querySelector(l.href))
       .filter(Boolean)
@@ -31,7 +39,7 @@ export default function Navbar() {
     )
     sections.forEach((s) => observer.observe(s))
     return () => observer.disconnect()
-  }, [])
+  }, [pathname, onProjectPage])
 
   // Lock body scroll when the mobile menu is open
   useEffect(() => {
@@ -57,7 +65,7 @@ export default function Navbar() {
         <ul className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
+              <SmartLink
                 href={link.href}
                 className={`relative rounded-full px-4 py-2 text-sm font-semibold transition-colors ${
                   active === link.href
@@ -73,7 +81,7 @@ export default function Navbar() {
                     transition={{ type: 'spring', stiffness: 350, damping: 30 }}
                   />
                 )}
-              </a>
+              </SmartLink>
             </li>
           ))}
         </ul>
@@ -86,9 +94,9 @@ export default function Navbar() {
             <Phone className="h-4 w-4 text-brand-500" />
             {company.phone}
           </a>
-          <a href="#contact" className="btn-primary whitespace-nowrap px-5 py-2.5">
+          <SmartLink href="#contact" className="btn-primary whitespace-nowrap px-5 py-2.5">
             Free Consultation <ArrowRight className="h-4 w-4" />
-          </a>
+          </SmartLink>
         </div>
 
         {/* Mobile toggle */}
@@ -114,7 +122,7 @@ export default function Navbar() {
             <ul className="container-px flex flex-col gap-1 py-5">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <a
+                  <SmartLink
                     href={link.href}
                     onClick={() => setOpen(false)}
                     className={`block rounded-xl px-4 py-3 text-base font-semibold transition-colors ${
@@ -124,13 +132,13 @@ export default function Navbar() {
                     }`}
                   >
                     {link.label}
-                  </a>
+                  </SmartLink>
                 </li>
               ))}
               <li className="pt-2">
-                <a href="#contact" onClick={() => setOpen(false)} className="btn-primary w-full">
+                <SmartLink href="#contact" onClick={() => setOpen(false)} className="btn-primary w-full">
                   Free Consultation <ArrowRight className="h-4 w-4" />
-                </a>
+                </SmartLink>
               </li>
               <li className="pt-1">
                 <a href={`tel:${company.phonePlain}`} className="btn-secondary w-full">

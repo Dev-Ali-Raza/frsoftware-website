@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { brand, company } from '../data/site'
 
 /**
@@ -41,7 +42,7 @@ export default function Logo({ className = '', variant = 'dark', imgClassName = 
   const src = variant === 'light' ? brand.logoWhite : brand.logo
 
   return (
-    <a href="#home" className={`inline-flex shrink-0 items-center ${className}`} aria-label={`${company.name} — home`}>
+    <Link to="/" className={`inline-flex shrink-0 items-center ${className}`} aria-label={`${company.name} — home`}>
       {!missing ? (
         <img
           src={src}
@@ -62,6 +63,6 @@ export default function Logo({ className = '', variant = 'dark', imgClassName = 
           </span>
         </span>
       )}
-    </a>
+    </Link>
   )
 }
