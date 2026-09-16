@@ -11,7 +11,9 @@ export function projectMedia(slug) {
   const captions = projectDetails[slug]?.captions || {}
   const images = gen.images.map((img) => {
     const file = img.src.split('/').pop()
-    return { ...img, caption: captions[file] || img.caption, portrait: img.h > img.w }
+    // "portrait" = phone-shaped shots only; tall full-page desktop captures stay landscape (cropped to the top)
+    const portrait = img.h > img.w * 1.5 && img.w <= 1300
+    return { ...img, caption: captions[file] || img.caption, portrait }
   })
   return { images, video: gen.video }
 }

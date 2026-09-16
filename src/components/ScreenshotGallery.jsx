@@ -48,16 +48,31 @@ export default function ScreenshotGallery({ images, initial = 9 }) {
               onClick={() => setOpen(i)}
               aria-label={`Open screenshot: ${img.caption}`}
               className={`relative block w-full overflow-hidden rounded-2xl border border-surface-300 bg-surface-100 shadow-[0_10px_30px_-18px_rgba(15,29,43,0.35)] transition-all hover:-translate-y-1 hover:border-brand-300 hover:shadow-[0_18px_40px_-18px_rgba(46,158,205,0.35)] ${
-                img.portrait ? 'aspect-[9/16]' : 'aspect-[16/10]'
+                mostlyPortrait ? 'aspect-[9/16]' : 'aspect-[16/10]'
               }`}
             >
-              <img
-                src={img.src}
-                alt={img.caption}
-                loading="lazy"
-                decoding="async"
-                className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-              />
+              {img.portrait && !mostlyPortrait ? (
+                /* a phone shot inside a landscape grid: centre it like a device */
+                <span className="absolute inset-0 grid place-items-center bg-gradient-to-br from-surface-200 via-surface-100 to-brand-50 p-3">
+                  <span className="relative block aspect-[9/16] h-full overflow-hidden rounded-xl border border-surface-300 bg-white shadow-lg">
+                    <img
+                      src={img.src}
+                      alt={img.caption}
+                      loading="lazy"
+                      decoding="async"
+                      className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                    />
+                  </span>
+                </span>
+              ) : (
+                <img
+                  src={img.src}
+                  alt={img.caption}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                />
+              )}
               <span className="absolute inset-0 bg-gradient-to-t from-navy-900/40 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
               <span className="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-full bg-white/90 text-navy-800 opacity-0 shadow transition-opacity group-hover:opacity-100">
                 <Maximize2 className="h-3.5 w-3.5" />

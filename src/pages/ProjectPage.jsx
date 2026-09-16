@@ -55,7 +55,7 @@ function HeroVisual({ project }) {
         <span className="h-2.5 w-2.5 rounded-full bg-amber-400/80" />
         <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
         <span className="ml-3 hidden truncate rounded-md bg-white/5 px-3 py-0.5 text-[11px] text-slate-400 sm:block">
-          {project.link ? project.link.replace(/^https?:\/\//, '') : `${project.slug}.frsoftwaresolutions.com`}
+          {project.link ? project.link.replace(/^https?:\/\//, '') : project.name}
         </span>
       </div>
       <div className={`relative aspect-[16/10] bg-gradient-to-br ${project.accent}`}>
@@ -144,7 +144,7 @@ export default function ProjectPage() {
                 </a>
                 {project.link && (
                   <a href={project.link} target="_blank" rel="noreferrer" className="btn-ghost px-6 py-3.5">
-                    Visit live site <ArrowUpRight className="h-4 w-4" />
+                    {project.demo ? 'Try live demo' : 'Visit live site'} <ArrowUpRight className="h-4 w-4" />
                   </a>
                 )}
                 {project.video && (
@@ -153,6 +153,14 @@ export default function ProjectPage() {
                   </a>
                 )}
               </div>
+
+              {project.demo && (
+                <div className="mt-6 inline-flex flex-wrap items-center gap-x-5 gap-y-2 rounded-2xl border border-white/10 bg-white/5 px-5 py-3 text-sm">
+                  <span className="font-semibold text-brand-300">Free demo login</span>
+                  <span className="text-slate-300">Email: <code className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-[13px] text-white">{project.demo.email}</code></span>
+                  <span className="text-slate-300">Password: <code className="rounded bg-white/10 px-1.5 py-0.5 font-mono text-[13px] text-white">{project.demo.password}</code></span>
+                </div>
+              )}
             </motion.div>
 
             <motion.div

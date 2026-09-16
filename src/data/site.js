@@ -415,8 +415,10 @@ export const projects = [
     categories: ['Management Systems', 'Web Apps', 'Accounting', 'Inventory', 'Business Automation'],
     description:
       'A complete hospital management system from front desk to final accounts: patients, OPD, consultation console, pharmacy, laboratory, ultrasound reporting, wards, billing, HR and payroll, and full double-entry accounting.',
-    technologies: ['Angular 18', '.NET 9', 'SQL Server 2022', 'PWA-ready'],
-    visibility: 'Private',
+    link: 'https://hms.frsoftwaresolutions.online/',
+    demo: { email: 'demo@hms.com', password: 'Asdf@123' },
+    technologies: ['Angular 18', '.NET 9', 'SQL Server 2022', 'Android App'],
+    visibility: 'Public',
     features: [
       'Patient registration with MR number, allergies, vitals, visit timeline, documents',
       'Doctor consultation console: vitals, diagnosis, prescriptions, lab orders on one screen',

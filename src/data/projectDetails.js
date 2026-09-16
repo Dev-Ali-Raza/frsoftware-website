@@ -247,7 +247,7 @@ export const projectDetails = {
   'medicare-hms': {
     tagline: 'Front desk to final accounts: one login for every department of the hospital, with real double-entry accounting underneath.',
     facts: [
-      { label: 'Platform', value: 'Web application, desktop and tablet' },
+      { label: 'Platform', value: 'Web application + Android app' },
       { label: 'Stack', value: 'Angular 18 · ASP.NET Core 9 · SQL Server 2022' },
       { label: 'Deployment', value: 'Single server, on-premises or cloud; one database per hospital' },
       { label: 'Best for', value: 'Hospitals, clinics, diagnostic centres in Pakistan' },
@@ -256,7 +256,7 @@ export const projectDetails = {
       { value: '20', label: 'Modules on one login' },
       { value: '12', label: 'Pre-filled ultrasound report templates' },
       { value: '25+', label: 'Date-filtered, printable reports' },
-      { value: 'PKR', label: 'Pakistan locale, letterhead on every print' },
+      { value: 'Live demo', label: 'Try it free at hms.frsoftwaresolutions.online' },
     ],
     overview: [
       'MediCare HMS runs a hospital end to end. Reception registers an OPD visit with a token in seconds; the doctor sees the patient\'s vitals, allergies, history, and prescriptions on one consultation console and orders lab tests from the same screen; the pharmacy sells against live stock; the lab enters results and shares the report over WhatsApp; the ward admits and discharges with a full discharge summary.',
