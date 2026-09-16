@@ -99,7 +99,7 @@ export default function ProjectPage() {
   return (
     <article>
       {/* ------------------------------------------------ hero */}
-      <section className="bg-hero relative overflow-hidden pb-24 pt-28 text-slate-300 lg:pb-32 lg:pt-36">
+      <section className="bg-hero relative overflow-hidden pb-28 pt-28 text-slate-300 lg:pb-36 lg:pt-36">
         <div className="bg-grid pointer-events-none absolute inset-0 opacity-40" />
         <div className="aurora-blob pointer-events-none absolute -right-32 top-10 h-[420px] w-[420px] rounded-full bg-brand-500/20 blur-[140px]" />
 
@@ -168,13 +168,17 @@ export default function ProjectPage() {
 
       {/* ------------------------------------------------ quick facts */}
       {project.facts.length > 0 && (
-        <section className="section-light relative">
+        <section className="section-light relative z-10 flow-root">{/* flow-root: stops the grid's negative margin collapsing through the section */}
           <div className="container-px">
-            <StaggerGroup className="-mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" stagger={0.08}>
+            <StaggerGroup className="-mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:-mt-16" stagger={0.08}>
               {project.facts.map((f) => (
-                <motion.div key={f.label} variants={staggerItem} className="card p-5">
+                <motion.div
+                  key={f.label}
+                  variants={staggerItem}
+                  className="card flex flex-col gap-2 border-surface-300 p-6 shadow-[0_18px_40px_-20px_rgba(15,29,43,0.35)]"
+                >
                   <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-brand-600">{f.label}</p>
-                  <p className="mt-1.5 font-semibold text-navy-800">{f.value}</p>
+                  <p className="text-[15px] font-semibold leading-snug text-navy-800">{f.value}</p>
                 </motion.div>
               ))}
             </StaggerGroup>
@@ -183,7 +187,7 @@ export default function ProjectPage() {
       )}
 
       {/* ------------------------------------------------ overview */}
-      <section className="section-light py-20 lg:py-24">
+      <section className="section-light pb-20 pt-14 lg:pb-24 lg:pt-16">
         <div className="container-px grid gap-12 lg:grid-cols-[1.3fr_1fr] lg:gap-16">
           <div>
             <SectionTitle eyebrow="Overview" title={`What ${project.name} does`} />
