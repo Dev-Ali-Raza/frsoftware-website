@@ -508,7 +508,7 @@ export const techColors = {
 export const teamSection = {
   heading: 'Meet the Team Behind FR Software Solutions',
   subheading:
-    'Our team combines software engineering, UI/UX design, database development, and business automation experience to build reliable solutions for real businesses.',
+    'Our team combines software engineering, UI/UX design, database development, business automation, and digital marketing experience to build and grow reliable solutions for real businesses.',
 }
 
 export const team = [
@@ -551,6 +551,26 @@ export const team = [
       'JavaScript',
       'TypeScript',
       'Responsive UI',
+    ],
+  },
+  {
+    name: 'Hyder Shaikh',
+    role: 'Digital Marketer / Social Media Manager',
+    initials: 'HS',
+    portfolio: 'https://hydershaikhportfolio.vercel.app/',
+    github: null,
+    intro:
+      'Hyder Shaikh handles digital marketing, Meta Ads campaigns, social media management, content creation, and video editing to help businesses reach and engage the right audience.',
+    skills: [
+      'Meta Ads',
+      'Facebook & Instagram Ads',
+      'Social Media Management',
+      'SEO',
+      'Content Writing',
+      'Video Editing',
+      'Post Design',
+      'Community Engagement',
+      'Ads Analytics',
     ],
   },
 ]

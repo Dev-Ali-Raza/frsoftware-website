@@ -15,7 +15,7 @@ export default function Team() {
           subtitle={teamSection.subheading}
         />
 
-        <StaggerGroup className="mx-auto mt-14 grid max-w-4xl gap-8 md:grid-cols-2" stagger={0.15}>
+        <StaggerGroup className="mx-auto mt-14 grid max-w-6xl gap-8 md:grid-cols-2 lg:grid-cols-3" stagger={0.15}>
           {team.map((member) => (
             <motion.div key={member.name} variants={staggerItem}>
               <TiltCard className="animated-border h-full rounded-3xl p-[1px]">
@@ -51,15 +51,17 @@ export default function Team() {
                     >
                       View Portfolio <ArrowUpRight className="h-3.5 w-3.5" />
                     </a>
-                    <a
-                      href={member.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${member.name} on GitHub`}
-                      className="grid h-10 w-10 place-items-center rounded-full border border-surface-300 bg-surface-100 text-navy-700 transition-colors hover:bg-brand-50 hover:text-brand-700"
-                    >
-                      <Github className="h-4 w-4" />
-                    </a>
+                    {member.github && (
+                      <a
+                        href={member.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${member.name} on GitHub`}
+                        className="grid h-10 w-10 place-items-center rounded-full border border-surface-300 bg-surface-100 text-navy-700 transition-colors hover:bg-brand-50 hover:text-brand-700"
+                      >
+                        <Github className="h-4 w-4" />
+                      </a>
+                    )}
                     <a
                       href="#"
                       aria-label={`${member.name} on LinkedIn`}
