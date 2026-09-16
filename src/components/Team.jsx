@@ -62,13 +62,17 @@ export default function Team() {
                         <Github className="h-4 w-4" />
                       </a>
                     )}
-                    <a
-                      href="#"
-                      aria-label={`${member.name} on LinkedIn`}
-                      className="grid h-10 w-10 place-items-center rounded-full border border-surface-300 bg-surface-100 text-navy-700 transition-colors hover:bg-brand-50 hover:text-brand-700"
-                    >
-                      <Linkedin className="h-4 w-4" />
-                    </a>
+                    {member.linkedin && (
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${member.name} on LinkedIn`}
+                        className="grid h-10 w-10 place-items-center rounded-full border border-surface-300 bg-surface-100 text-navy-700 transition-colors hover:bg-brand-50 hover:text-brand-700"
+                      >
+                        <Linkedin className="h-4 w-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </TiltCard>
