@@ -15,17 +15,17 @@ export const company = {
   description:
     'FR Software Solutions is a modern software development company building POS systems, inventory management, restaurant and retail management, accounting systems, dashboards, and custom web & desktop applications for growing businesses.',
   email: 'info@frsoftwaresolutions.com',
-  phone: '+92 317 3910825',
-  phonePlain: '+923173910825',
-  whatsappNumber: '923173910825',       // digits only, with country code — used by src/lib/whatsapp.js
+  phone: '+92 324 0285920',
+  phonePlain: '+923240285920',
+  whatsappNumber: '923240285920',       // digits only, with country code — used by src/lib/whatsapp.js
   whatsappMessage: "Hello FR Software Solutions, I'm interested in your software services.",
-  whatsapp: 'https://wa.me/923173910825',
+  whatsapp: 'https://wa.me/923240285920',
   location: 'Pakistan · Serving local & international clients',
   social: {
     facebook: 'https://www.facebook.com/FRSoftwareSolutions',
     instagram: 'https://www.instagram.com/frsoftwaresolutions/',
     linkedin: 'https://www.linkedin.com/company/fr-software-solutions',
-    whatsapp: 'https://wa.me/923173910825',
+    whatsapp: 'https://wa.me/923240285920',
     github: 'https://github.com/Dev-Ali-Raza',
   },
 }
