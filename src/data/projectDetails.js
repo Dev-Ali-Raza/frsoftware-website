@@ -19,25 +19,34 @@
 export const projectDetails = {
   /* ------------------------------------------------------------------ */
   'mart-pos': {
-    tagline: 'Checkout, stock, suppliers, customers, and full double-entry accounting in one retail application.',
+    tagline: 'A fast keyboard-driven billing counter and a full back office (stock, suppliers, customers, and double-entry accounting) for marts and retail shops.',
     facts: [
-      { label: 'Platform', value: 'Web application' },
-      { label: 'Stack', value: 'Angular · .NET · SQL Server' },
-      { label: 'Users', value: 'Multi-user, role-based' },
-      { label: 'Best for', value: 'Marts, retail stores, wholesalers' },
+      { label: 'Platform', value: 'Web application (Chrome / Edge)' },
+      { label: 'Stack', value: 'Angular 17 · ASP.NET Core 8 · SQL Server' },
+      { label: 'Deployment', value: 'One shop PC as server, used from any PC on the local network' },
+      { label: 'Best for', value: 'Marts, grocery stores, retail shops' },
+    ],
+    highlights: [
+      { value: '14', label: 'Modules in one application' },
+      { value: '10', label: 'POS keyboard shortcuts (F1 to F8, Enter, Esc)' },
+      { value: '13', label: 'Printable reports, PDF and Excel export' },
+      { value: '3', label: 'Built-in roles with per-screen rights' },
     ],
     overview: [
-      'Mart POS is our flagship retail management system. It replaces the usual mix of a billing app, an Excel stock sheet, and a separate accounts register with a single application that handles the complete retail back office.',
-      'The cashier gets a fast, keyboard-friendly checkout with barcode scanning, discounts, multiple payment methods, and thermal receipt printing. The owner gets live inventory, supplier payables, customer ledgers, expenses, and a full set of financial statements generated automatically from every transaction.',
-      'Because accounting is double-entry and built into the same database as sales and purchases, reports such as Profit & Loss, Trial Balance, and Balance Sheet are always in sync with what actually happened at the counter.',
+      'MartPOS is a web-based POS, inventory, and accounting system for marts, grocery stores, and retail shops. It installs on one shop PC and runs in the browser on every other PC on the shop network, so there is nothing to install at each counter.',
+      'The cashier works on a full-screen billing counter built for speed: scan a barcode or type a product code, adjust price, discount, or quantity, and take Cash, Card, Split, or Credit payment, with function-key shortcuts for every action. Bills can be held and resumed, returns are taken against the original invoice, and an 80mm thermal receipt prints with the store\'s name, address, and footer.',
+      'Behind the counter, the owner manages products and barcode labels, purchases (GRN) that raise stock automatically, supplier and customer ledgers, stock adjustments, and expenses. Every sale, purchase, payment, and expense posts double-entry journal entries automatically, so the Trial Balance, Profit & Loss, and Balance Sheet always match what happened at the counter.',
     ],
     modules: [
-      { icon: 'ScanBarcode', title: 'Point of Sale', items: ['Fast checkout with barcode / SKU scanning', 'Cart management, item and bill discounts', 'Cash, card, credit, and split payments', 'Thermal receipt printing', 'Hold and resume sales'] },
-      { icon: 'Boxes', title: 'Products & Inventory', items: ['Product, category, and unit management', 'Product label / barcode printing', 'Live stock levels and low-stock alerts', 'Stock adjustments and movement history'] },
-      { icon: 'Truck', title: 'Purchases & Suppliers', items: ['Purchase orders and purchase invoices', 'Supplier profiles and payables', 'Supplier statements and payment history', 'Purchase returns'] },
-      { icon: 'Users', title: 'Customers & Ledgers', items: ['Customer profiles with credit limits', 'Customer ledger and statements', 'Receivables tracking and payment receipts', 'Sales returns'] },
-      { icon: 'Calculator', title: 'Accounting', items: ['Double-entry accounting on every transaction', 'Chart of accounts and journal vouchers', 'Expense management with categories', 'Profit & Loss, Trial Balance, Balance Sheet', 'Cash & Bank summary'] },
-      { icon: 'LayoutDashboard', title: 'Dashboard & Security', items: ['KPI dashboard: sales, profit, stock value, receivables', 'Daily, monthly, and custom-range reports', 'User management and authentication', 'Role-based access to modules and actions'] },
+      { icon: 'ScanBarcode', title: 'POS Billing Counter', items: ['Full-screen dark billing screen built for speed', 'Scan barcode, type product code, or search by name', 'Edit price, line discount, and quantity; bill-level discount', 'Cash (with change), Card, Split, and Credit payment', 'Hold and resume bills; sale returns against an earlier invoice', '80mm thermal receipt; shortcuts F1 Cart, F2 Pay, F3 Hold, F4 Held, F5 Return, F6 Print, F7 New, F8 History'] },
+      { icon: 'LayoutDashboard', title: 'Dashboard', items: ['Today\'s sales (with invoice count), purchases, expenses, and estimated profit', 'Last 7 days sales vs purchases line chart', 'Daily sales bar chart', 'Recent sales and low-stock items'] },
+      { icon: 'Boxes', title: 'Products, Categories & Units', items: ['Barcode, category, unit, supplier, purchase and sale price, minimum stock', 'Search by name or barcode, filter by category', 'Barcode generator for products without one', 'Stock history per product: every sale, purchase, and adjustment', 'Barcode label printing with price on 8 thermal label sizes (1-up, 2-up, 3-up)'] },
+      { icon: 'Truck', title: 'Purchases (GRN) & Suppliers', items: ['New GRN: scan or search products, quantity and purchase price per line', 'Supplier invoice no., discount, paid and remaining; Paid / Partial / Unpaid', 'Stock increased automatically; printable Goods Received Note', 'Supplier payments (Cash / Bank) auto-allocated to the oldest unpaid GRNs', 'Supplier ledger with date range and print'] },
+      { icon: 'Users', title: 'Customers & Credit', items: ['Customer list with phone, address, and outstanding balance', 'Opening balances and credit sales from the POS', 'Receive payments (Cash / Bank); Admin can reverse a payment', 'Customer ledger with date range and print'] },
+      { icon: 'Receipt', title: 'Sales, Stock & Expenses', items: ['Sales history with date and status filters, invoice detail, reprint', 'Cancel a sale with a reason', 'Stock adjustments: Add, Remove, Correction, Damage', 'Expenses by category (Rent, Utilities, Salaries, ...) paid by Cash or Bank'] },
+      { icon: 'Calculator', title: 'Double-Entry Accounting', items: ['Chart of accounts: assets, liabilities, equity, revenue, expenses; add each bank account', 'Every sale, purchase, payment, and expense posts journal entries automatically', 'Manual journal entries and journal reversal', 'Cash & Bank summary: cash in hand and every bank balance'] },
+      { icon: 'BarChart3', title: 'Reports', items: ['Daily sales (cash / card / credit split) and monthly sales', 'Stock status, top products with profit', 'Supplier and customer statements, expense summary', 'Account ledger, trial balance, profit & loss, balance sheet', 'Print, PDF, and Excel export'] },
+      { icon: 'ShieldCheck', title: 'Settings & Security', items: ['Store information, receipt footer, currency, document prefixes', 'Users with Admin, Accountant, and Data Entry roles', 'Role permissions matrix: View / Create / Edit / Delete per screen', 'BCrypt passwords, JWT sessions with refresh tokens, server-side checks', 'Every transaction records the user who created it'] },
     ],
   },
 

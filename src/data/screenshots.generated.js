@@ -209,6 +209,278 @@ export const generatedScreenshots = {
     ],
     "video": null
   },
+  "mart-pos": {
+    "images": [
+      {
+        "src": "/projects/mart-pos/01-login.webp",
+        "caption": "Login",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/02-dashboard.webp",
+        "caption": "Dashboard",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/03-pos.webp",
+        "caption": "POS",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/04-products.webp",
+        "caption": "Products",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/05-categories.webp",
+        "caption": "Categories",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/06-units.webp",
+        "caption": "Units",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/07-suppliers.webp",
+        "caption": "Suppliers",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/08-customers.webp",
+        "caption": "Customers",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/09-purchases.webp",
+        "caption": "Purchases",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/10-sales-history.webp",
+        "caption": "Sales history",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/11-stock-adjustments.webp",
+        "caption": "Stock adjustments",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/12-expenses.webp",
+        "caption": "Expenses",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/13-accounting-cash-and-bank-summary.webp",
+        "caption": "Accounting cash and bank summary",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/14-accounting-chart-of-accounts.webp",
+        "caption": "Accounting chart of accounts",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/15-accounting-journal-entries.webp",
+        "caption": "Accounting journal entries",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/16-report-daily-sales.webp",
+        "caption": "Report daily sales",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/17-report-monthly-sales.webp",
+        "caption": "Report monthly sales",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/18-report-stock-status.webp",
+        "caption": "Report stock status",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/19-report-top-products.webp",
+        "caption": "Report top products",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/20-report-supplier-statement.webp",
+        "caption": "Report supplier statement",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/21-report-customer-statement.webp",
+        "caption": "Report customer statement",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/22-report-expense-summary.webp",
+        "caption": "Report expense summary",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/23-report-account-ledger.webp",
+        "caption": "Report account ledger",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/24-report-trial-balance.webp",
+        "caption": "Report trial balance",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/25-report-profit-and-loss.webp",
+        "caption": "Report profit and loss",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/26-report-balance-sheet.webp",
+        "caption": "Report balance sheet",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/27-settings.webp",
+        "caption": "Settings",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/28-settings-my-profile.webp",
+        "caption": "Settings my profile",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/29-settings-change-password.webp",
+        "caption": "Settings change password",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/30-settings-users.webp",
+        "caption": "Settings users",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/31-settings-role-permissions.webp",
+        "caption": "Settings role permissions",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/32-products-add-product.webp",
+        "caption": "Products add product",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/33-products-stock-history.webp",
+        "caption": "Products stock history",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/34-suppliers-supplier-ledger.webp",
+        "caption": "Suppliers supplier ledger",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/35-customers-customer-ledger.webp",
+        "caption": "Customers customer ledger",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/36-purchases-new-purchase-grn.webp",
+        "caption": "Purchases new purchase grn",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/37-purchases-purchase-detail.webp",
+        "caption": "Purchases purchase detail",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/38-sales-invoice-detail.webp",
+        "caption": "Sales invoice detail",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/39-print-sale-receipt-80mm-thermal.webp",
+        "caption": "Print sale receipt 80mm thermal",
+        "w": 700,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/40-products-label-print-dialog.webp",
+        "caption": "Products label print dialog",
+        "w": 1600,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/41-print-barcode-labels.webp",
+        "caption": "Print barcode labels",
+        "w": 700,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/42-print-purchase-grn.webp",
+        "caption": "Print purchase grn",
+        "w": 1000,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/43-print-customer-ledger.webp",
+        "caption": "Print customer ledger",
+        "w": 1000,
+        "h": 900
+      },
+      {
+        "src": "/projects/mart-pos/44-print-daily-sales-report.webp",
+        "caption": "Print daily sales report",
+        "w": 1000,
+        "h": 900
+      }
+    ],
+    "video": {
+      "src": "/projects/mart-pos/walkthrough.mp4",
+      "poster": "/projects/mart-pos/walkthrough-poster.webp"
+    }
+  },
   "medicare-hms": {
     "images": [
       {
